@@ -1,0 +1,34 @@
+notes:
+
+6_layer: reg = 0.01 shows slower learning. 21% accuracy @2.5 loss after 10 epochs
+			dropout shows significant improvement on overfitting. achieved 30% test accuracy so far
+6_layer_3: no regularization, reached 22% accuracy @0.4 loss
+6_layer_2: ~20% accuracy after 10 epochs
+
+Overfitting can be improved by using smaller convnets
+
+data augmentation (6_layer_3) shows significant improvement on 6 layer 3 dropout to achieve 42% accuracy
+
+
+=== PYRAMIDS ===
+
+pyramid achieved 28% accuracy after 6 epochs without augmentation.. with augmentation ~42% accuracy @ 28 epochs
+pyramid + model ensemble: overfitting 29% accuracy after 10 epochs without augmentation
+pyramid 3 (with 8 * 8 window) shows overfitting, 29% after 10 epochs without augmentation, training accuracy ~60%
+
+rotate continuous on 6_layer_3 with augment: test accuracy stops at 40%. training accuracy stops at 60%
+rotate by 8 degree increments, -24 ~ +24 degrees + model ensemble with 8 * 8 filter size: validate accuracy stops at 39%, training accuracy stops at 42%
+
+=== Google ===
+Google net:
+google net 3 layer no rotate: achieves 45% validate accuracy. training accuracy @ 70%
+
+
+rotation -24 ~ 24 degrees seem not helping
+google net achieved higher accuracy faster than pyramid
+
+
+experimenting:
+google net rotate -8, 0, 8 degree: achieved 43% validation accuracy. trying to increase learning rate
+
+

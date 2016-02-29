@@ -1,0 +1,1196 @@
+[0m-- ignore option cache[0m	
+[0m-- ignore option optimState[0m	
+[0m-- ignore option data[0m	
+[0m-- ignore option retrain[0m	
+[0mnEpochs[0m	[0;36m5[0m	[0;36m55[0m	
+{
+  version : [1;30m"[0m[0;32mkevenet,nEpochs=5[0m[1;30m"[0m
+  testBatchSize : [0;36m512[0m
+  save : [1;30m"[0m[0;32m/root/fbcunn_imagenet/imagenet_runs/kevenet,nEpochs=5/,ThuFeb2603:17:132015[0m[1;30m"[0m
+  cache : [1;30m"[0m[0;32m/root/fbcunn_imagenet/imagenet_runs[0m[1;30m"[0m
+  netType : [1;30m"[0m[0;32mkevenet[0m[1;30m"[0m
+  LR : [0;36m0.01[0m
+  epochNumber : [0;36m1[0m
+  backend : [1;30m"[0m[0;32mcudnn[0m[1;30m"[0m
+  optimState : [1;30m"[0m[0;32mnone[0m[1;30m"[0m
+  nDonkeys : [0;36m2[0m
+  momentum : [0;36m0.9[0m
+  batchSize : [0;36m512[0m
+  nGPU : [0;36m1[0m
+  manualSeed : [0;36m2[0m
+  GPU : [0;36m1[0m
+  data : [1;30m"[0m[0;32m/root/tiny-imagenet-200/[0m[1;30m"[0m
+  LRD : [0;36m0.05[0m
+  weightDecay : [0;36m0[0m
+  epochSize : [0;36m195.3125[0m
+  retrain : [1;30m"[0m[0;32mnone[0m[1;30m"[0m
+  nEpochs : [0;36m5[0m
+}
+[0mSaving everything to: /root/fbcunn_imagenet/imagenet_runs/kevenet,nEpochs=5/,ThuFeb2603:17:132015[0m	
+Starting donkey with id: 1 seed: 3
+Loading train metadata from cache
+Loading test metadata from cache
+Loaded mean and std from cache.
+Mean: 	0.48280489743178	0.44994344132098	0.39845296112579	Std:	0.22945334570531	0.22579659447449	0.22453886057926
+Stats of 100 randomly sampled images after normalizing. Mean: -0.071924150267342 Std: 1.0755387861607
+Starting donkey with id: 2 seed: 4
+Loading train metadata from cache
+Loading test metadata from cache
+Loaded mean and std from cache.
+Mean: 	0.48280489743178	0.44994344132098	0.39845296112579	Std:	0.22945334570531	0.22579659447449	0.22453886057926
+Stats of 100 randomly sampled images after normalizing. Mean: 0.0080673658228161 Std: 1.0398686346775
+[0mnClasses: [0m	[0;36m200[0m	
+[0mnValidate: [0m	[0;36m10000[0m	
+[0mopt.LR: 0.014043833563079[0m	
+[0m=> Creating model from file: models/kevenet_cudnn.lua[0m	
+[0m=> Model[0m	
+nn.Sequential {
+  [input -> (1) -> (2) -> output]
+  (1): nn.Concat {
+    input
+      |`-> (1): nn.Sequential {
+      |      [input -> (1) -> (2) -> (3) -> (4) -> (5) -> (6) -> (7) -> (8) -> output]
+      |      (1): cudnn.SpatialConvolution
+      |      (2): cudnn.ReLU
+      |      (3): cudnn.SpatialMaxPooling
+      |      (4): cudnn.SpatialConvolution
+      |      (5): cudnn.ReLU
+      |      (6): cudnn.SpatialMaxPooling
+      |      (7): cudnn.SpatialConvolution
+      |      (8): cudnn.ReLU
+      |    }
+      |`-> (2): nn.Sequential {
+      |      [input -> (1) -> (2) -> (3) -> (4) -> (5) -> (6) -> (7) -> (8) -> output]
+      |      (1): cudnn.SpatialConvolution
+      |      (2): cudnn.ReLU
+      |      (3): cudnn.SpatialMaxPooling
+      |      (4): cudnn.SpatialConvolution
+      |      (5): cudnn.ReLU
+      |      (6): cudnn.SpatialMaxPooling
+      |      (7): cudnn.SpatialConvolution
+      |      (8): cudnn.ReLU
+      |    }
+       ... -> output
+  }
+  (2): nn.Sequential {
+    [input -> (1) -> (2) -> (3) -> (4) -> (5) -> output]
+    (1): nn.View
+    (2): nn.Linear(32768 -> 512)
+    (3): nn.Threshold
+    (4): nn.Linear(512 -> 200)
+    (5): nn.LogSoftMax
+  }
+}
+[0m=> Criterion[0m	
+nn.ClassNLLCriterion
+[0m==> Converting model to CUDA[0m	
+[0m==> doing epoch on training data:[0m	
+[0m==> online epoch # 1[0m	
+[0moptimState.learningRate: 0.013341641884925[0m	
+[0mEpoch: [1][0/195]	Time 0.794 Loss 5.2981 LR 0.0133416419[0m	
+[0mEpoch: [1][1/195]	Time 0.787 Loss 5.2973 LR 0.0133416419[0m	
+[0mEpoch: [1][2/195]	Time 0.786 Loss 5.2978 LR 0.0133416419[0m	
+[0mEpoch: [1][3/195]	Time 0.787 Loss 5.3005 LR 0.0133416419[0m	
+[0mEpoch: [1][4/195]	Time 0.787 Loss 5.2963 LR 0.0133416419[0m	
+[0mEpoch: [1][5/195]	Time 0.787 Loss 5.2971 LR 0.0133416419[0m	
+[0mEpoch: [1][6/195]	Time 0.787 Loss 5.2975 LR 0.0133416419[0m	
+[0mEpoch: [1][7/195]	Time 0.787 Loss 5.2963 LR 0.0133416419[0m	
+[0mEpoch: [1][8/195]	Time 0.786 Loss 5.2973 LR 0.0133416419[0m	
+[0mEpoch: [1][9/195]	Time 0.786 Loss 5.2973 LR 0.0133416419[0m	
+[0mEpoch: [1][10/195]	Time 0.787 Loss 5.2983 LR 0.0133416419[0m	
+[0mEpoch: [1][11/195]	Time 0.786 Loss 5.2967 LR 0.0133416419[0m	
+[0mEpoch: [1][12/195]	Time 0.787 Loss 5.2974 LR 0.0133416419[0m	
+[0mEpoch: [1][13/195]	Time 0.786 Loss 5.2992 LR 0.0133416419[0m	
+[0mEpoch: [1][14/195]	Time 0.786 Loss 5.2960 LR 0.0133416419[0m	
+[0mAccuracy top1-%: 0.78 	top5-%: 3.52 	Loss: 5.2960 	LR: 0.0133416419[0m	
+[0mEpoch: [1][15/195]	Time 0.786 Loss 5.2918 LR 0.0133416419[0m	
+[0mEpoch: [1][16/195]	Time 0.787 Loss 5.2960 LR 0.0133416419[0m	
+[0mEpoch: [1][17/195]	Time 0.786 Loss 5.2963 LR 0.0133416419[0m	
+[0mEpoch: [1][18/195]	Time 0.786 Loss 5.2908 LR 0.0133416419[0m	
+[0mEpoch: [1][19/195]	Time 0.786 Loss 5.2937 LR 0.0133416419[0m	
+[0mEpoch: [1][20/195]	Time 0.786 Loss 5.2935 LR 0.0133416419[0m	
+[0mEpoch: [1][21/195]	Time 0.786 Loss 5.2939 LR 0.0133416419[0m	
+[0mEpoch: [1][22/195]	Time 0.786 Loss 5.2898 LR 0.0133416419[0m	
+[0mEpoch: [1][23/195]	Time 0.787 Loss 5.2926 LR 0.0133416419[0m	
+[0mEpoch: [1][24/195]	Time 0.787 Loss 5.2935 LR 0.0133416419[0m	
+[0mEpoch: [1][25/195]	Time 0.786 Loss 5.2922 LR 0.0133416419[0m	
+[0mEpoch: [1][26/195]	Time 0.787 Loss 5.2926 LR 0.0133416419[0m	
+[0mEpoch: [1][27/195]	Time 0.787 Loss 5.2949 LR 0.0133416419[0m	
+[0mEpoch: [1][28/195]	Time 0.787 Loss 5.2887 LR 0.0133416419[0m	
+[0mEpoch: [1][29/195]	Time 0.786 Loss 5.2922 LR 0.0133416419[0m	
+[0mAccuracy top1-%: 0.20 	top5-%: 2.93 	Loss: 5.2922 	LR: 0.0133416419[0m	
+[0mEpoch: [1][30/195]	Time 0.787 Loss 5.2872 LR 0.0133416419[0m	
+[0mEpoch: [1][31/195]	Time 0.787 Loss 5.2885 LR 0.0133416419[0m	
+[0mEpoch: [1][32/195]	Time 0.786 Loss 5.2828 LR 0.0133416419[0m	
+[0mEpoch: [1][33/195]	Time 0.787 Loss 5.2876 LR 0.0133416419[0m	
+[0mEpoch: [1][34/195]	Time 0.786 Loss 5.2866 LR 0.0133416419[0m	
+[0mEpoch: [1][35/195]	Time 0.787 Loss 5.2842 LR 0.0133416419[0m	
+[0mEpoch: [1][36/195]	Time 0.786 Loss 5.2838 LR 0.0133416419[0m	
+[0mEpoch: [1][37/195]	Time 0.787 Loss 5.2854 LR 0.0133416419[0m	
+[0mEpoch: [1][38/195]	Time 0.786 Loss 5.2726 LR 0.0133416419[0m	
+[0mEpoch: [1][39/195]	Time 0.786 Loss 5.2789 LR 0.0133416419[0m	
+[0mEpoch: [1][40/195]	Time 0.786 Loss 5.2787 LR 0.0133416419[0m	
+[0mEpoch: [1][41/195]	Time 0.787 Loss 5.2748 LR 0.0133416419[0m	
+[0mEpoch: [1][42/195]	Time 0.786 Loss 5.2685 LR 0.0133416419[0m	
+[0mEpoch: [1][43/195]	Time 0.786 Loss 5.2843 LR 0.0133416419[0m	
+[0mEpoch: [1][44/195]	Time 0.786 Loss 5.2819 LR 0.0133416419[0m	
+[0mAccuracy top1-%: 1.17 	top5-%: 3.32 	Loss: 5.2819 	LR: 0.0133416419[0m	
+[0mEpoch: [1][45/195]	Time 0.786 Loss 5.2785 LR 0.0133416419[0m	
+[0mEpoch: [1][46/195]	Time 0.787 Loss 5.2778 LR 0.0133416419[0m	
+[0mEpoch: [1][47/195]	Time 0.787 Loss 5.2747 LR 0.0133416419[0m	
+[0mEpoch: [1][48/195]	Time 0.786 Loss 5.2618 LR 0.0133416419[0m	
+[0mEpoch: [1][49/195]	Time 0.786 Loss 5.2618 LR 0.0133416419[0m	
+[0mEpoch: [1][50/195]	Time 0.786 Loss 5.2666 LR 0.0133416419[0m	
+[0mEpoch: [1][51/195]	Time 0.786 Loss 5.2575 LR 0.0133416419[0m	
+[0mEpoch: [1][52/195]	Time 0.786 Loss 5.2659 LR 0.0133416419[0m	
+[0mEpoch: [1][53/195]	Time 0.786 Loss 5.2553 LR 0.0133416419[0m	
+[0mEpoch: [1][54/195]	Time 0.786 Loss 5.2502 LR 0.0133416419[0m	
+[0mEpoch: [1][55/195]	Time 0.787 Loss 5.2458 LR 0.0133416419[0m	
+[0mEpoch: [1][56/195]	Time 0.786 Loss 5.2460 LR 0.0133416419[0m	
+[0mEpoch: [1][57/195]	Time 0.787 Loss 5.2496 LR 0.0133416419[0m	
+[0mEpoch: [1][58/195]	Time 0.787 Loss 5.2423 LR 0.0133416419[0m	
+[0mEpoch: [1][59/195]	Time 0.786 Loss 5.2279 LR 0.0133416419[0m	
+[0mAccuracy top1-%: 0.98 	top5-%: 5.27 	Loss: 5.2279 	LR: 0.0133416419[0m	
+[0mEpoch: [1][60/195]	Time 0.786 Loss 5.2330 LR 0.0133416419[0m	
+[0mEpoch: [1][61/195]	Time 0.787 Loss 5.2356 LR 0.0133416419[0m	
+[0mEpoch: [1][62/195]	Time 0.786 Loss 5.2248 LR 0.0133416419[0m	
+[0mEpoch: [1][63/195]	Time 0.786 Loss 5.2418 LR 0.0133416419[0m	
+[0mEpoch: [1][64/195]	Time 0.787 Loss 5.2184 LR 0.0133416419[0m	
+[0mEpoch: [1][65/195]	Time 0.786 Loss 5.1948 LR 0.0133416419[0m	
+[0mEpoch: [1][66/195]	Time 0.786 Loss 5.2115 LR 0.0133416419[0m	
+[0mEpoch: [1][67/195]	Time 0.787 Loss 5.1898 LR 0.0133416419[0m	
+[0mEpoch: [1][68/195]	Time 0.786 Loss 5.2036 LR 0.0133416419[0m	
+[0mEpoch: [1][69/195]	Time 0.786 Loss 5.1806 LR 0.0133416419[0m	
+[0mEpoch: [1][70/195]	Time 0.786 Loss 5.1600 LR 0.0133416419[0m	
+[0mEpoch: [1][71/195]	Time 0.787 Loss 5.1673 LR 0.0133416419[0m	
+[0mEpoch: [1][72/195]	Time 0.786 Loss 5.1316 LR 0.0133416419[0m	
+[0mEpoch: [1][73/195]	Time 0.786 Loss 5.1585 LR 0.0133416419[0m	
+[0mEpoch: [1][74/195]	Time 0.786 Loss 5.1483 LR 0.0133416419[0m	
+[0mAccuracy top1-%: 2.54 	top5-%: 8.20 	Loss: 5.1483 	LR: 0.0133416419[0m	
+[0mEpoch: [1][75/195]	Time 0.786 Loss 5.1337 LR 0.0133416419[0m	
+[0mEpoch: [1][76/195]	Time 0.787 Loss 5.1507 LR 0.0133416419[0m	
+[0mEpoch: [1][77/195]	Time 0.786 Loss 5.1081 LR 0.0133416419[0m	
+[0mEpoch: [1][78/195]	Time 0.786 Loss 5.1163 LR 0.0133416419[0m	
+[0mEpoch: [1][79/195]	Time 0.786 Loss 5.1011 LR 0.0133416419[0m	
+[0mEpoch: [1][80/195]	Time 0.786 Loss 5.0788 LR 0.0133416419[0m	
+[0mEpoch: [1][81/195]	Time 0.786 Loss 5.0693 LR 0.0133416419[0m	
+[0mEpoch: [1][82/195]	Time 0.787 Loss 5.0602 LR 0.0133416419[0m	
+[0mEpoch: [1][83/195]	Time 0.787 Loss 5.0085 LR 0.0133416419[0m	
+[0mEpoch: [1][84/195]	Time 0.786 Loss 5.0522 LR 0.0133416419[0m	
+[0mEpoch: [1][85/195]	Time 0.787 Loss 5.0844 LR 0.0133416419[0m	
+[0mEpoch: [1][86/195]	Time 0.787 Loss 5.0825 LR 0.0133416419[0m	
+[0mEpoch: [1][87/195]	Time 0.787 Loss 4.9998 LR 0.0133416419[0m	
+[0mEpoch: [1][88/195]	Time 0.786 Loss 5.0233 LR 0.0133416419[0m	
+[0mEpoch: [1][89/195]	Time 0.786 Loss 5.0616 LR 0.0133416419[0m	
+[0mAccuracy top1-%: 3.52 	top5-%: 10.16 	Loss: 5.0616 	LR: 0.0133416419[0m	
+[0mEpoch: [1][90/195]	Time 0.786 Loss 4.9772 LR 0.0133416419[0m	
+[0mEpoch: [1][91/195]	Time 0.787 Loss 5.0530 LR 0.0133416419[0m	
+[0mEpoch: [1][92/195]	Time 0.786 Loss 5.0012 LR 0.0133416419[0m	
+[0mEpoch: [1][93/195]	Time 0.786 Loss 5.0024 LR 0.0133416419[0m	
+[0mEpoch: [1][94/195]	Time 0.786 Loss 5.0389 LR 0.0133416419[0m	
+[0mEpoch: [1][95/195]	Time 0.787 Loss 5.0526 LR 0.0133416419[0m	
+[0mEpoch: [1][96/195]	Time 0.787 Loss 5.0033 LR 0.0133416419[0m	
+[0mEpoch: [1][97/195]	Time 0.787 Loss 5.0221 LR 0.0133416419[0m	
+[0mEpoch: [1][98/195]	Time 0.787 Loss 4.9620 LR 0.0133416419[0m	
+[0mEpoch: [1][99/195]	Time 0.786 Loss 4.9640 LR 0.0133416419[0m	
+[0mEpoch: [1][100/195]	Time 0.788 Loss 5.0323 LR 0.0133416419[0m	
+[0mEpoch: [1][101/195]	Time 0.786 Loss 4.9381 LR 0.0133416419[0m	
+[0mEpoch: [1][102/195]	Time 0.787 Loss 4.9435 LR 0.0133416419[0m	
+[0mEpoch: [1][103/195]	Time 0.788 Loss 4.9414 LR 0.0133416419[0m	
+[0mEpoch: [1][104/195]	Time 0.786 Loss 4.9252 LR 0.0133416419[0m	
+[0mAccuracy top1-%: 3.91 	top5-%: 10.74 	Loss: 4.9252 	LR: 0.0133416419[0m	
+[0mEpoch: [1][105/195]	Time 0.786 Loss 4.9743 LR 0.0133416419[0m	
+[0mEpoch: [1][106/195]	Time 0.786 Loss 4.8857 LR 0.0133416419[0m	
+[0mEpoch: [1][107/195]	Time 0.788 Loss 4.9790 LR 0.0133416419[0m	
+[0mEpoch: [1][108/195]	Time 0.786 Loss 4.9259 LR 0.0133416419[0m	
+[0mEpoch: [1][109/195]	Time 0.786 Loss 4.9512 LR 0.0133416419[0m	
+[0mEpoch: [1][110/195]	Time 0.786 Loss 4.8238 LR 0.0133416419[0m	
+[0mEpoch: [1][111/195]	Time 0.787 Loss 4.8607 LR 0.0133416419[0m	
+[0mEpoch: [1][112/195]	Time 0.787 Loss 4.9221 LR 0.0133416419[0m	
+[0mEpoch: [1][113/195]	Time 0.786 Loss 4.9056 LR 0.0133416419[0m	
+[0mEpoch: [1][114/195]	Time 0.786 Loss 4.9563 LR 0.0133416419[0m	
+[0mEpoch: [1][115/195]	Time 0.787 Loss 4.9074 LR 0.0133416419[0m	
+[0mEpoch: [1][116/195]	Time 0.786 Loss 4.9524 LR 0.0133416419[0m	
+[0mEpoch: [1][117/195]	Time 0.786 Loss 4.8755 LR 0.0133416419[0m	
+[0mEpoch: [1][118/195]	Time 0.786 Loss 4.8539 LR 0.0133416419[0m	
+[0mEpoch: [1][119/195]	Time 0.786 Loss 4.8866 LR 0.0133416419[0m	
+[0mAccuracy top1-%: 5.66 	top5-%: 14.84 	Loss: 4.8866 	LR: 0.0133416419[0m	
+[0mEpoch: [1][120/195]	Time 0.786 Loss 4.8367 LR 0.0133416419[0m	
+[0mEpoch: [1][121/195]	Time 0.786 Loss 4.8513 LR 0.0133416419[0m	
+[0mEpoch: [1][122/195]	Time 0.787 Loss 4.9566 LR 0.0133416419[0m	
+[0mEpoch: [1][123/195]	Time 0.786 Loss 4.8238 LR 0.0133416419[0m	
+[0mEpoch: [1][124/195]	Time 0.786 Loss 4.8065 LR 0.0133416419[0m	
+[0mEpoch: [1][125/195]	Time 0.786 Loss 4.8124 LR 0.0133416419[0m	
+[0mEpoch: [1][126/195]	Time 0.786 Loss 4.8374 LR 0.0133416419[0m	
+[0mEpoch: [1][127/195]	Time 0.787 Loss 4.7729 LR 0.0133416419[0m	
+[0mEpoch: [1][128/195]	Time 0.786 Loss 4.7177 LR 0.0133416419[0m	
+[0mEpoch: [1][129/195]	Time 0.787 Loss 4.8314 LR 0.0133416419[0m	
+[0mEpoch: [1][130/195]	Time 0.786 Loss 4.7775 LR 0.0133416419[0m	
+[0mEpoch: [1][131/195]	Time 0.786 Loss 4.8547 LR 0.0133416419[0m	
+[0mEpoch: [1][132/195]	Time 0.786 Loss 4.7922 LR 0.0133416419[0m	
+[0mEpoch: [1][133/195]	Time 0.787 Loss 4.7965 LR 0.0133416419[0m	
+[0mEpoch: [1][134/195]	Time 0.786 Loss 4.7638 LR 0.0133416419[0m	
+[0mAccuracy top1-%: 5.66 	top5-%: 16.21 	Loss: 4.7638 	LR: 0.0133416419[0m	
+[0mEpoch: [1][135/195]	Time 0.788 Loss 4.8005 LR 0.0133416419[0m	
+[0mEpoch: [1][136/195]	Time 0.786 Loss 4.7622 LR 0.0133416419[0m	
+[0mEpoch: [1][137/195]	Time 0.787 Loss 4.6340 LR 0.0133416419[0m	
+[0mEpoch: [1][138/195]	Time 0.786 Loss 4.7292 LR 0.0133416419[0m	
+[0mEpoch: [1][139/195]	Time 0.788 Loss 4.7679 LR 0.0133416419[0m	
+[0mEpoch: [1][140/195]	Time 0.786 Loss 4.7689 LR 0.0133416419[0m	
+[0mEpoch: [1][141/195]	Time 0.787 Loss 4.7977 LR 0.0133416419[0m	
+[0mEpoch: [1][142/195]	Time 0.786 Loss 4.7094 LR 0.0133416419[0m	
+[0mEpoch: [1][143/195]	Time 0.787 Loss 4.6705 LR 0.0133416419[0m	
+[0mEpoch: [1][144/195]	Time 0.787 Loss 4.7909 LR 0.0133416419[0m	
+[0mEpoch: [1][145/195]	Time 0.787 Loss 4.7673 LR 0.0133416419[0m	
+[0mEpoch: [1][146/195]	Time 0.786 Loss 4.6869 LR 0.0133416419[0m	
+[0mEpoch: [1][147/195]	Time 0.787 Loss 4.6892 LR 0.0133416419[0m	
+[0mEpoch: [1][148/195]	Time 0.787 Loss 4.7404 LR 0.0133416419[0m	
+[0mEpoch: [1][149/195]	Time 0.786 Loss 4.7554 LR 0.0133416419[0m	
+[0mAccuracy top1-%: 6.25 	top5-%: 20.51 	Loss: 4.7554 	LR: 0.0133416419[0m	
+[0mEpoch: [1][150/195]	Time 0.786 Loss 4.7820 LR 0.0133416419[0m	
+[0mEpoch: [1][151/195]	Time 0.786 Loss 4.6844 LR 0.0133416419[0m	
+[0mEpoch: [1][152/195]	Time 0.786 Loss 4.7301 LR 0.0133416419[0m	
+[0mEpoch: [1][153/195]	Time 0.786 Loss 4.6447 LR 0.0133416419[0m	
+[0mEpoch: [1][154/195]	Time 0.787 Loss 4.6225 LR 0.0133416419[0m	
+[0mEpoch: [1][155/195]	Time 0.786 Loss 4.6168 LR 0.0133416419[0m	
+[0mEpoch: [1][156/195]	Time 0.786 Loss 4.5949 LR 0.0133416419[0m	
+[0mEpoch: [1][157/195]	Time 0.786 Loss 4.7159 LR 0.0133416419[0m	
+[0mEpoch: [1][158/195]	Time 0.786 Loss 4.6339 LR 0.0133416419[0m	
+[0mEpoch: [1][159/195]	Time 0.786 Loss 4.5929 LR 0.0133416419[0m	
+[0mEpoch: [1][160/195]	Time 0.786 Loss 4.6042 LR 0.0133416419[0m	
+[0mEpoch: [1][161/195]	Time 0.787 Loss 4.5971 LR 0.0133416419[0m	
+[0mEpoch: [1][162/195]	Time 0.787 Loss 4.6454 LR 0.0133416419[0m	
+[0mEpoch: [1][163/195]	Time 0.786 Loss 4.6423 LR 0.0133416419[0m	
+[0mEpoch: [1][164/195]	Time 0.787 Loss 4.6095 LR 0.0133416419[0m	
+[0mAccuracy top1-%: 6.64 	top5-%: 20.70 	Loss: 4.6095 	LR: 0.0133416419[0m	
+[0mEpoch: [1][165/195]	Time 0.786 Loss 4.6120 LR 0.0133416419[0m	
+[0mEpoch: [1][166/195]	Time 0.786 Loss 4.6568 LR 0.0133416419[0m	
+[0mEpoch: [1][167/195]	Time 0.786 Loss 4.5128 LR 0.0133416419[0m	
+[0mEpoch: [1][168/195]	Time 0.786 Loss 4.5843 LR 0.0133416419[0m	
+[0mEpoch: [1][169/195]	Time 0.787 Loss 4.5253 LR 0.0133416419[0m	
+[0mEpoch: [1][170/195]	Time 0.786 Loss 4.5584 LR 0.0133416419[0m	
+[0mEpoch: [1][171/195]	Time 0.787 Loss 4.6358 LR 0.0133416419[0m	
+[0mEpoch: [1][172/195]	Time 0.787 Loss 4.6448 LR 0.0133416419[0m	
+[0mEpoch: [1][173/195]	Time 0.787 Loss 4.4969 LR 0.0133416419[0m	
+[0mEpoch: [1][174/195]	Time 0.786 Loss 4.5156 LR 0.0133416419[0m	
+[0mEpoch: [1][175/195]	Time 0.787 Loss 4.5986 LR 0.0133416419[0m	
+[0mEpoch: [1][176/195]	Time 0.787 Loss 4.6046 LR 0.0133416419[0m	
+[0mEpoch: [1][177/195]	Time 0.787 Loss 4.5341 LR 0.0133416419[0m	
+[0mEpoch: [1][178/195]	Time 0.786 Loss 4.5873 LR 0.0133416419[0m	
+[0mEpoch: [1][179/195]	Time 0.786 Loss 4.6156 LR 0.0133416419[0m	
+[0mAccuracy top1-%: 6.84 	top5-%: 22.66 	Loss: 4.6156 	LR: 0.0133416419[0m	
+[0mEpoch: [1][180/195]	Time 0.786 Loss 4.5721 LR 0.0133416419[0m	
+[0mEpoch: [1][181/195]	Time 0.787 Loss 4.5902 LR 0.0133416419[0m	
+[0mEpoch: [1][182/195]	Time 0.787 Loss 4.5856 LR 0.0133416419[0m	
+[0mEpoch: [1][183/195]	Time 0.786 Loss 4.4693 LR 0.0133416419[0m	
+[0mEpoch: [1][184/195]	Time 0.786 Loss 4.5392 LR 0.0133416419[0m	
+[0mEpoch: [1][185/195]	Time 0.787 Loss 4.5676 LR 0.0133416419[0m	
+[0mEpoch: [1][186/195]	Time 0.786 Loss 4.4790 LR 0.0133416419[0m	
+[0mEpoch: [1][187/195]	Time 0.787 Loss 4.5314 LR 0.0133416419[0m	
+[0mEpoch: [1][188/195]	Time 0.787 Loss 4.4583 LR 0.0133416419[0m	
+[0mEpoch: [1][189/195]	Time 0.786 Loss 4.4472 LR 0.0133416419[0m	
+[0mEpoch: [1][190/195]	Time 0.786 Loss 4.4460 LR 0.0133416419[0m	
+[0mEpoch: [1][191/195]	Time 0.787 Loss 4.5821 LR 0.0133416419[0m	
+[0mEpoch: [1][192/195]	Time 0.787 Loss 4.3930 LR 0.0133416419[0m	
+[0mEpoch: [1][193/195]	Time 0.786 Loss 4.5425 LR 0.0133416419[0m	
+[0mEpoch: [1][194/195]	Time 0.787 Loss 4.5002 LR 0.0133416419[0m	
+[0mAccuracy top1-%: 8.40 	top5-%: 21.29 	Loss: 4.5002 	LR: 0.0133416419[0m	
+[0mEpoch: [1][TRAINING SUMMARY] Total Time(s): 194.42	average loss (per batch): 4.96 	 accuracy(%):	 top-1 0.27	 top-5 0.82[0m	
+[0m
+[0m	
+[0m==> doing epoch on validation data:[0m	
+[0m==> online epoch # 1[0m	
+[0mnValidate: 10000[0m	
+[0mtestBatchSize: 512[0m	
+[0mEpoch: [1][TESTING SUMMARY] Total Time(s): 5.94 	average loss (per batch): 4.42 	 accuracy [Center](%):	 top-1 7.84	 top-5 22.39	[0m	
+[0m
+[0m	
+[0m==> doing epoch on training data:[0m	
+[0m==> online epoch # 2[0m	
+[0moptimState.learningRate: 0.012674559790679[0m	
+[0mEpoch: [2][0/195]	Time 0.787 Loss 4.4226 LR 0.0126745598[0m	
+[0mEpoch: [2][1/195]	Time 0.787 Loss 4.4044 LR 0.0126745598[0m	
+[0mEpoch: [2][2/195]	Time 0.786 Loss 4.5131 LR 0.0126745598[0m	
+[0mEpoch: [2][3/195]	Time 0.786 Loss 4.5355 LR 0.0126745598[0m	
+[0mEpoch: [2][4/195]	Time 0.786 Loss 4.5455 LR 0.0126745598[0m	
+[0mEpoch: [2][5/195]	Time 0.786 Loss 4.4820 LR 0.0126745598[0m	
+[0mEpoch: [2][6/195]	Time 0.786 Loss 4.5350 LR 0.0126745598[0m	
+[0mEpoch: [2][7/195]	Time 0.787 Loss 4.5151 LR 0.0126745598[0m	
+[0mEpoch: [2][8/195]	Time 0.786 Loss 4.3978 LR 0.0126745598[0m	
+[0mEpoch: [2][9/195]	Time 0.787 Loss 4.4119 LR 0.0126745598[0m	
+[0mEpoch: [2][10/195]	Time 0.786 Loss 4.4718 LR 0.0126745598[0m	
+[0mEpoch: [2][11/195]	Time 0.787 Loss 4.3824 LR 0.0126745598[0m	
+[0mEpoch: [2][12/195]	Time 0.787 Loss 4.3735 LR 0.0126745598[0m	
+[0mEpoch: [2][13/195]	Time 0.786 Loss 4.3354 LR 0.0126745598[0m	
+[0mEpoch: [2][14/195]	Time 0.787 Loss 4.4295 LR 0.0126745598[0m	
+[0mAccuracy top1-%: 10.16 	top5-%: 25.39 	Loss: 4.4295 	LR: 0.0126745598[0m	
+[0mEpoch: [2][15/195]	Time 0.787 Loss 4.4475 LR 0.0126745598[0m	
+[0mEpoch: [2][16/195]	Time 0.787 Loss 4.3284 LR 0.0126745598[0m	
+[0mEpoch: [2][17/195]	Time 0.786 Loss 4.3378 LR 0.0126745598[0m	
+[0mEpoch: [2][18/195]	Time 0.786 Loss 4.4007 LR 0.0126745598[0m	
+[0mEpoch: [2][19/195]	Time 0.787 Loss 4.5022 LR 0.0126745598[0m	
+[0mEpoch: [2][20/195]	Time 0.786 Loss 4.4413 LR 0.0126745598[0m	
+[0mEpoch: [2][21/195]	Time 0.787 Loss 4.3852 LR 0.0126745598[0m	
+[0mEpoch: [2][22/195]	Time 0.787 Loss 4.4219 LR 0.0126745598[0m	
+[0mEpoch: [2][23/195]	Time 0.786 Loss 4.3902 LR 0.0126745598[0m	
+[0mEpoch: [2][24/195]	Time 0.786 Loss 4.3355 LR 0.0126745598[0m	
+[0mEpoch: [2][25/195]	Time 0.787 Loss 4.3830 LR 0.0126745598[0m	
+[0mEpoch: [2][26/195]	Time 0.786 Loss 4.4961 LR 0.0126745598[0m	
+[0mEpoch: [2][27/195]	Time 0.787 Loss 4.2430 LR 0.0126745598[0m	
+[0mEpoch: [2][28/195]	Time 0.787 Loss 4.2314 LR 0.0126745598[0m	
+[0mEpoch: [2][29/195]	Time 0.786 Loss 4.3034 LR 0.0126745598[0m	
+[0mAccuracy top1-%: 11.52 	top5-%: 28.71 	Loss: 4.3034 	LR: 0.0126745598[0m	
+[0mEpoch: [2][30/195]	Time 0.787 Loss 4.3847 LR 0.0126745598[0m	
+[0mEpoch: [2][31/195]	Time 0.786 Loss 4.4451 LR 0.0126745598[0m	
+[0mEpoch: [2][32/195]	Time 0.787 Loss 4.3795 LR 0.0126745598[0m	
+[0mEpoch: [2][33/195]	Time 0.787 Loss 4.3395 LR 0.0126745598[0m	
+[0mEpoch: [2][34/195]	Time 0.786 Loss 4.3071 LR 0.0126745598[0m	
+[0mEpoch: [2][35/195]	Time 0.787 Loss 4.3866 LR 0.0126745598[0m	
+[0mEpoch: [2][36/195]	Time 0.786 Loss 4.2746 LR 0.0126745598[0m	
+[0mEpoch: [2][37/195]	Time 0.787 Loss 4.3169 LR 0.0126745598[0m	
+[0mEpoch: [2][38/195]	Time 0.786 Loss 4.2819 LR 0.0126745598[0m	
+[0mEpoch: [2][39/195]	Time 0.787 Loss 4.3122 LR 0.0126745598[0m	
+[0mEpoch: [2][40/195]	Time 0.786 Loss 4.3771 LR 0.0126745598[0m	
+[0mEpoch: [2][41/195]	Time 0.787 Loss 4.3431 LR 0.0126745598[0m	
+[0mEpoch: [2][42/195]	Time 0.786 Loss 4.4300 LR 0.0126745598[0m	
+[0mEpoch: [2][43/195]	Time 0.787 Loss 4.3725 LR 0.0126745598[0m	
+[0mEpoch: [2][44/195]	Time 0.787 Loss 4.3560 LR 0.0126745598[0m	
+[0mAccuracy top1-%: 9.18 	top5-%: 26.95 	Loss: 4.3560 	LR: 0.0126745598[0m	
+[0mEpoch: [2][45/195]	Time 0.787 Loss 4.2498 LR 0.0126745598[0m	
+[0mEpoch: [2][46/195]	Time 0.787 Loss 4.2651 LR 0.0126745598[0m	
+[0mEpoch: [2][47/195]	Time 0.787 Loss 4.3633 LR 0.0126745598[0m	
+[0mEpoch: [2][48/195]	Time 0.787 Loss 4.3836 LR 0.0126745598[0m	
+[0mEpoch: [2][49/195]	Time 0.787 Loss 4.2627 LR 0.0126745598[0m	
+[0mEpoch: [2][50/195]	Time 0.787 Loss 4.2454 LR 0.0126745598[0m	
+[0mEpoch: [2][51/195]	Time 0.787 Loss 4.2705 LR 0.0126745598[0m	
+[0mEpoch: [2][52/195]	Time 0.787 Loss 4.2090 LR 0.0126745598[0m	
+[0mEpoch: [2][53/195]	Time 0.787 Loss 4.2533 LR 0.0126745598[0m	
+[0mEpoch: [2][54/195]	Time 0.786 Loss 4.2750 LR 0.0126745598[0m	
+[0mEpoch: [2][55/195]	Time 0.787 Loss 4.2468 LR 0.0126745598[0m	
+[0mEpoch: [2][56/195]	Time 0.787 Loss 4.2875 LR 0.0126745598[0m	
+[0mEpoch: [2][57/195]	Time 0.787 Loss 4.3456 LR 0.0126745598[0m	
+[0mEpoch: [2][58/195]	Time 0.787 Loss 4.2356 LR 0.0126745598[0m	
+[0mEpoch: [2][59/195]	Time 0.786 Loss 4.3556 LR 0.0126745598[0m	
+[0mAccuracy top1-%: 10.74 	top5-%: 27.34 	Loss: 4.3556 	LR: 0.0126745598[0m	
+[0mEpoch: [2][60/195]	Time 0.787 Loss 4.1860 LR 0.0126745598[0m	
+[0mEpoch: [2][61/195]	Time 0.787 Loss 4.2704 LR 0.0126745598[0m	
+[0mEpoch: [2][62/195]	Time 0.787 Loss 4.2948 LR 0.0126745598[0m	
+[0mEpoch: [2][63/195]	Time 0.787 Loss 4.2073 LR 0.0126745598[0m	
+[0mEpoch: [2][64/195]	Time 0.787 Loss 4.3031 LR 0.0126745598[0m	
+[0mEpoch: [2][65/195]	Time 0.786 Loss 4.3207 LR 0.0126745598[0m	
+[0mEpoch: [2][66/195]	Time 0.786 Loss 4.2470 LR 0.0126745598[0m	
+[0mEpoch: [2][67/195]	Time 0.787 Loss 4.1574 LR 0.0126745598[0m	
+[0mEpoch: [2][68/195]	Time 0.787 Loss 4.1669 LR 0.0126745598[0m	
+[0mEpoch: [2][69/195]	Time 0.786 Loss 4.1574 LR 0.0126745598[0m	
+[0mEpoch: [2][70/195]	Time 0.786 Loss 4.3249 LR 0.0126745598[0m	
+[0mEpoch: [2][71/195]	Time 0.787 Loss 4.2903 LR 0.0126745598[0m	
+[0mEpoch: [2][72/195]	Time 0.787 Loss 4.2789 LR 0.0126745598[0m	
+[0mEpoch: [2][73/195]	Time 0.787 Loss 4.2813 LR 0.0126745598[0m	
+[0mEpoch: [2][74/195]	Time 0.786 Loss 4.2314 LR 0.0126745598[0m	
+[0mAccuracy top1-%: 12.89 	top5-%: 30.27 	Loss: 4.2314 	LR: 0.0126745598[0m	
+[0mEpoch: [2][75/195]	Time 0.787 Loss 4.2882 LR 0.0126745598[0m	
+[0mEpoch: [2][76/195]	Time 0.786 Loss 4.3011 LR 0.0126745598[0m	
+[0mEpoch: [2][77/195]	Time 0.787 Loss 4.1846 LR 0.0126745598[0m	
+[0mEpoch: [2][78/195]	Time 0.787 Loss 4.1643 LR 0.0126745598[0m	
+[0mEpoch: [2][79/195]	Time 0.787 Loss 4.2062 LR 0.0126745598[0m	
+[0mEpoch: [2][80/195]	Time 0.787 Loss 4.1687 LR 0.0126745598[0m	
+[0mEpoch: [2][81/195]	Time 0.787 Loss 4.2072 LR 0.0126745598[0m	
+[0mEpoch: [2][82/195]	Time 0.787 Loss 4.2258 LR 0.0126745598[0m	
+[0mEpoch: [2][83/195]	Time 0.787 Loss 4.1394 LR 0.0126745598[0m	
+[0mEpoch: [2][84/195]	Time 0.787 Loss 4.1172 LR 0.0126745598[0m	
+[0mEpoch: [2][85/195]	Time 0.787 Loss 4.2738 LR 0.0126745598[0m	
+[0mEpoch: [2][86/195]	Time 0.786 Loss 4.2209 LR 0.0126745598[0m	
+[0mEpoch: [2][87/195]	Time 0.787 Loss 4.1192 LR 0.0126745598[0m	
+[0mEpoch: [2][88/195]	Time 0.787 Loss 4.1208 LR 0.0126745598[0m	
+[0mEpoch: [2][89/195]	Time 0.787 Loss 4.1878 LR 0.0126745598[0m	
+[0mAccuracy top1-%: 11.52 	top5-%: 31.45 	Loss: 4.1878 	LR: 0.0126745598[0m	
+[0mEpoch: [2][90/195]	Time 0.787 Loss 4.2130 LR 0.0126745598[0m	
+[0mEpoch: [2][91/195]	Time 0.787 Loss 4.1695 LR 0.0126745598[0m	
+[0mEpoch: [2][92/195]	Time 0.786 Loss 4.1441 LR 0.0126745598[0m	
+[0mEpoch: [2][93/195]	Time 0.787 Loss 4.2290 LR 0.0126745598[0m	
+[0mEpoch: [2][94/195]	Time 0.787 Loss 4.1406 LR 0.0126745598[0m	
+[0mEpoch: [2][95/195]	Time 0.787 Loss 4.1086 LR 0.0126745598[0m	
+[0mEpoch: [2][96/195]	Time 0.787 Loss 4.1850 LR 0.0126745598[0m	
+[0mEpoch: [2][97/195]	Time 0.787 Loss 4.1337 LR 0.0126745598[0m	
+[0mEpoch: [2][98/195]	Time 0.787 Loss 4.1778 LR 0.0126745598[0m	
+[0mEpoch: [2][99/195]	Time 0.786 Loss 4.1379 LR 0.0126745598[0m	
+[0mEpoch: [2][100/195]	Time 0.786 Loss 4.3562 LR 0.0126745598[0m	
+[0mEpoch: [2][101/195]	Time 0.786 Loss 4.1547 LR 0.0126745598[0m	
+[0mEpoch: [2][102/195]	Time 0.787 Loss 4.1715 LR 0.0126745598[0m	
+[0mEpoch: [2][103/195]	Time 0.787 Loss 4.1384 LR 0.0126745598[0m	
+[0mEpoch: [2][104/195]	Time 0.786 Loss 4.1460 LR 0.0126745598[0m	
+[0mAccuracy top1-%: 12.89 	top5-%: 33.20 	Loss: 4.1460 	LR: 0.0126745598[0m	
+[0mEpoch: [2][105/195]	Time 0.787 Loss 4.0976 LR 0.0126745598[0m	
+[0mEpoch: [2][106/195]	Time 0.786 Loss 4.1475 LR 0.0126745598[0m	
+[0mEpoch: [2][107/195]	Time 0.786 Loss 4.2446 LR 0.0126745598[0m	
+[0mEpoch: [2][108/195]	Time 0.787 Loss 4.1276 LR 0.0126745598[0m	
+[0mEpoch: [2][109/195]	Time 0.786 Loss 4.0935 LR 0.0126745598[0m	
+[0mEpoch: [2][110/195]	Time 0.787 Loss 4.1903 LR 0.0126745598[0m	
+[0mEpoch: [2][111/195]	Time 0.786 Loss 4.0727 LR 0.0126745598[0m	
+[0mEpoch: [2][112/195]	Time 0.787 Loss 4.2038 LR 0.0126745598[0m	
+[0mEpoch: [2][113/195]	Time 0.787 Loss 4.1042 LR 0.0126745598[0m	
+[0mEpoch: [2][114/195]	Time 0.786 Loss 4.2883 LR 0.0126745598[0m	
+[0mEpoch: [2][115/195]	Time 0.786 Loss 4.0541 LR 0.0126745598[0m	
+[0mEpoch: [2][116/195]	Time 0.786 Loss 4.1999 LR 0.0126745598[0m	
+[0mEpoch: [2][117/195]	Time 0.786 Loss 4.0772 LR 0.0126745598[0m	
+[0mEpoch: [2][118/195]	Time 0.786 Loss 4.0742 LR 0.0126745598[0m	
+[0mEpoch: [2][119/195]	Time 0.786 Loss 4.0484 LR 0.0126745598[0m	
+[0mAccuracy top1-%: 15.04 	top5-%: 34.77 	Loss: 4.0484 	LR: 0.0126745598[0m	
+[0mEpoch: [2][120/195]	Time 0.786 Loss 4.0708 LR 0.0126745598[0m	
+[0mEpoch: [2][121/195]	Time 0.787 Loss 4.0350 LR 0.0126745598[0m	
+[0mEpoch: [2][122/195]	Time 0.786 Loss 4.1330 LR 0.0126745598[0m	
+[0mEpoch: [2][123/195]	Time 0.786 Loss 3.8970 LR 0.0126745598[0m	
+[0mEpoch: [2][124/195]	Time 0.787 Loss 4.0981 LR 0.0126745598[0m	
+[0mEpoch: [2][125/195]	Time 0.786 Loss 4.1962 LR 0.0126745598[0m	
+[0mEpoch: [2][126/195]	Time 0.786 Loss 4.0502 LR 0.0126745598[0m	
+[0mEpoch: [2][127/195]	Time 0.786 Loss 3.9747 LR 0.0126745598[0m	
+[0mEpoch: [2][128/195]	Time 0.787 Loss 4.1601 LR 0.0126745598[0m	
+[0mEpoch: [2][129/195]	Time 0.787 Loss 4.0774 LR 0.0126745598[0m	
+[0mEpoch: [2][130/195]	Time 0.787 Loss 3.9888 LR 0.0126745598[0m	
+[0mEpoch: [2][131/195]	Time 0.787 Loss 4.0415 LR 0.0126745598[0m	
+[0mEpoch: [2][132/195]	Time 0.787 Loss 3.9543 LR 0.0126745598[0m	
+[0mEpoch: [2][133/195]	Time 0.787 Loss 4.0324 LR 0.0126745598[0m	
+[0mEpoch: [2][134/195]	Time 0.786 Loss 4.1203 LR 0.0126745598[0m	
+[0mAccuracy top1-%: 11.72 	top5-%: 31.25 	Loss: 4.1203 	LR: 0.0126745598[0m	
+[0mEpoch: [2][135/195]	Time 0.787 Loss 4.0514 LR 0.0126745598[0m	
+[0mEpoch: [2][136/195]	Time 0.786 Loss 4.0092 LR 0.0126745598[0m	
+[0mEpoch: [2][137/195]	Time 0.787 Loss 4.1456 LR 0.0126745598[0m	
+[0mEpoch: [2][138/195]	Time 0.787 Loss 4.1218 LR 0.0126745598[0m	
+[0mEpoch: [2][139/195]	Time 0.787 Loss 4.1132 LR 0.0126745598[0m	
+[0mEpoch: [2][140/195]	Time 0.786 Loss 4.0623 LR 0.0126745598[0m	
+[0mEpoch: [2][141/195]	Time 0.786 Loss 4.0786 LR 0.0126745598[0m	
+[0mEpoch: [2][142/195]	Time 0.787 Loss 3.9360 LR 0.0126745598[0m	
+[0mEpoch: [2][143/195]	Time 0.787 Loss 4.1205 LR 0.0126745598[0m	
+[0mEpoch: [2][144/195]	Time 0.786 Loss 4.0868 LR 0.0126745598[0m	
+[0mEpoch: [2][145/195]	Time 0.787 Loss 3.9979 LR 0.0126745598[0m	
+[0mEpoch: [2][146/195]	Time 0.787 Loss 4.0564 LR 0.0126745598[0m	
+[0mEpoch: [2][147/195]	Time 0.787 Loss 4.0567 LR 0.0126745598[0m	
+[0mEpoch: [2][148/195]	Time 0.787 Loss 4.0984 LR 0.0126745598[0m	
+[0mEpoch: [2][149/195]	Time 0.786 Loss 4.0622 LR 0.0126745598[0m	
+[0mAccuracy top1-%: 14.65 	top5-%: 33.79 	Loss: 4.0622 	LR: 0.0126745598[0m	
+[0mEpoch: [2][150/195]	Time 0.786 Loss 3.9237 LR 0.0126745598[0m	
+[0mEpoch: [2][151/195]	Time 0.786 Loss 4.0467 LR 0.0126745598[0m	
+[0mEpoch: [2][152/195]	Time 0.787 Loss 4.1089 LR 0.0126745598[0m	
+[0mEpoch: [2][153/195]	Time 0.786 Loss 3.9279 LR 0.0126745598[0m	
+[0mEpoch: [2][154/195]	Time 0.786 Loss 4.0993 LR 0.0126745598[0m	
+[0mEpoch: [2][155/195]	Time 0.787 Loss 4.0136 LR 0.0126745598[0m	
+[0mEpoch: [2][156/195]	Time 0.787 Loss 4.0543 LR 0.0126745598[0m	
+[0mEpoch: [2][157/195]	Time 0.787 Loss 4.0179 LR 0.0126745598[0m	
+[0mEpoch: [2][158/195]	Time 0.787 Loss 4.0118 LR 0.0126745598[0m	
+[0mEpoch: [2][159/195]	Time 0.787 Loss 3.9319 LR 0.0126745598[0m	
+[0mEpoch: [2][160/195]	Time 0.786 Loss 3.9179 LR 0.0126745598[0m	
+[0mEpoch: [2][161/195]	Time 0.786 Loss 4.0175 LR 0.0126745598[0m	
+[0mEpoch: [2][162/195]	Time 0.787 Loss 3.8940 LR 0.0126745598[0m	
+[0mEpoch: [2][163/195]	Time 0.787 Loss 3.9303 LR 0.0126745598[0m	
+[0mEpoch: [2][164/195]	Time 0.786 Loss 4.0294 LR 0.0126745598[0m	
+[0mAccuracy top1-%: 16.02 	top5-%: 36.13 	Loss: 4.0294 	LR: 0.0126745598[0m	
+[0mEpoch: [2][165/195]	Time 0.786 Loss 4.0661 LR 0.0126745598[0m	
+[0mEpoch: [2][166/195]	Time 0.787 Loss 3.9042 LR 0.0126745598[0m	
+[0mEpoch: [2][167/195]	Time 0.787 Loss 3.9285 LR 0.0126745598[0m	
+[0mEpoch: [2][168/195]	Time 0.787 Loss 3.9040 LR 0.0126745598[0m	
+[0mEpoch: [2][169/195]	Time 0.787 Loss 4.0579 LR 0.0126745598[0m	
+[0mEpoch: [2][170/195]	Time 0.786 Loss 3.9895 LR 0.0126745598[0m	
+[0mEpoch: [2][171/195]	Time 0.786 Loss 4.0518 LR 0.0126745598[0m	
+[0mEpoch: [2][172/195]	Time 0.787 Loss 3.9323 LR 0.0126745598[0m	
+[0mEpoch: [2][173/195]	Time 0.786 Loss 3.9394 LR 0.0126745598[0m	
+[0mEpoch: [2][174/195]	Time 0.786 Loss 4.0501 LR 0.0126745598[0m	
+[0mEpoch: [2][175/195]	Time 0.787 Loss 3.9256 LR 0.0126745598[0m	
+[0mEpoch: [2][176/195]	Time 0.786 Loss 3.9580 LR 0.0126745598[0m	
+[0mEpoch: [2][177/195]	Time 0.787 Loss 3.7824 LR 0.0126745598[0m	
+[0mEpoch: [2][178/195]	Time 0.787 Loss 3.9314 LR 0.0126745598[0m	
+[0mEpoch: [2][179/195]	Time 0.787 Loss 3.9420 LR 0.0126745598[0m	
+[0mAccuracy top1-%: 15.23 	top5-%: 37.89 	Loss: 3.9420 	LR: 0.0126745598[0m	
+[0mEpoch: [2][180/195]	Time 0.786 Loss 4.0762 LR 0.0126745598[0m	
+[0mEpoch: [2][181/195]	Time 0.786 Loss 3.9193 LR 0.0126745598[0m	
+[0mEpoch: [2][182/195]	Time 0.787 Loss 3.9210 LR 0.0126745598[0m	
+[0mEpoch: [2][183/195]	Time 0.787 Loss 3.8214 LR 0.0126745598[0m	
+[0mEpoch: [2][184/195]	Time 0.787 Loss 3.8586 LR 0.0126745598[0m	
+[0mEpoch: [2][185/195]	Time 0.787 Loss 3.8533 LR 0.0126745598[0m	
+[0mEpoch: [2][186/195]	Time 0.786 Loss 3.9472 LR 0.0126745598[0m	
+[0mEpoch: [2][187/195]	Time 0.786 Loss 3.9186 LR 0.0126745598[0m	
+[0mEpoch: [2][188/195]	Time 0.787 Loss 3.8989 LR 0.0126745598[0m	
+[0mEpoch: [2][189/195]	Time 0.787 Loss 3.8417 LR 0.0126745598[0m	
+[0mEpoch: [2][190/195]	Time 0.787 Loss 3.8180 LR 0.0126745598[0m	
+[0mEpoch: [2][191/195]	Time 0.787 Loss 3.9791 LR 0.0126745598[0m	
+[0mEpoch: [2][192/195]	Time 0.787 Loss 3.9226 LR 0.0126745598[0m	
+[0mEpoch: [2][193/195]	Time 0.787 Loss 3.8528 LR 0.0126745598[0m	
+[0mEpoch: [2][194/195]	Time 0.786 Loss 3.8902 LR 0.0126745598[0m	
+[0mAccuracy top1-%: 16.02 	top5-%: 39.45 	Loss: 3.8902 	LR: 0.0126745598[0m	
+[0mEpoch: [2][TRAINING SUMMARY] Total Time(s): 184.76	average loss (per batch): 4.16 	 accuracy(%):	 top-1 0.86	 top-5 2.13[0m	
+[0m
+[0m	
+[0m==> doing epoch on validation data:[0m	
+[0m==> online epoch # 2[0m	
+[0mnValidate: 10000[0m	
+[0mtestBatchSize: 512[0m	
+[0mEpoch: [2][TESTING SUMMARY] Total Time(s): 5.75 	average loss (per batch): 3.89 	 accuracy [Center](%):	 top-1 14.97	 top-5 34.46	[0m	
+[0m
+[0m	
+[0m==> doing epoch on training data:[0m	
+[0m==> online epoch # 3[0m	
+[0moptimState.learningRate: 0.012040831801145[0m	
+[0mEpoch: [3][0/195]	Time 0.787 Loss 3.8414 LR 0.0120408318[0m	
+[0mEpoch: [3][1/195]	Time 0.787 Loss 3.8792 LR 0.0120408318[0m	
+[0mEpoch: [3][2/195]	Time 0.787 Loss 3.9687 LR 0.0120408318[0m	
+[0mEpoch: [3][3/195]	Time 0.787 Loss 3.8454 LR 0.0120408318[0m	
+[0mEpoch: [3][4/195]	Time 0.786 Loss 3.7905 LR 0.0120408318[0m	
+[0mEpoch: [3][5/195]	Time 0.786 Loss 3.9645 LR 0.0120408318[0m	
+[0mEpoch: [3][6/195]	Time 0.786 Loss 3.7321 LR 0.0120408318[0m	
+[0mEpoch: [3][7/195]	Time 0.786 Loss 3.8949 LR 0.0120408318[0m	
+[0mEpoch: [3][8/195]	Time 0.787 Loss 3.9422 LR 0.0120408318[0m	
+[0mEpoch: [3][9/195]	Time 0.786 Loss 3.9056 LR 0.0120408318[0m	
+[0mEpoch: [3][10/195]	Time 0.787 Loss 3.8160 LR 0.0120408318[0m	
+[0mEpoch: [3][11/195]	Time 0.787 Loss 3.8172 LR 0.0120408318[0m	
+[0mEpoch: [3][12/195]	Time 0.787 Loss 3.8913 LR 0.0120408318[0m	
+[0mEpoch: [3][13/195]	Time 0.787 Loss 3.7830 LR 0.0120408318[0m	
+[0mEpoch: [3][14/195]	Time 0.787 Loss 3.7996 LR 0.0120408318[0m	
+[0mAccuracy top1-%: 16.21 	top5-%: 41.21 	Loss: 3.7996 	LR: 0.0120408318[0m	
+[0mEpoch: [3][15/195]	Time 0.787 Loss 3.9068 LR 0.0120408318[0m	
+[0mEpoch: [3][16/195]	Time 0.786 Loss 3.7379 LR 0.0120408318[0m	
+[0mEpoch: [3][17/195]	Time 0.786 Loss 3.9183 LR 0.0120408318[0m	
+[0mEpoch: [3][18/195]	Time 0.786 Loss 3.7797 LR 0.0120408318[0m	
+[0mEpoch: [3][19/195]	Time 0.787 Loss 3.7049 LR 0.0120408318[0m	
+[0mEpoch: [3][20/195]	Time 0.786 Loss 3.8508 LR 0.0120408318[0m	
+[0mEpoch: [3][21/195]	Time 0.786 Loss 3.9396 LR 0.0120408318[0m	
+[0mEpoch: [3][22/195]	Time 0.786 Loss 3.8949 LR 0.0120408318[0m	
+[0mEpoch: [3][23/195]	Time 0.787 Loss 3.7434 LR 0.0120408318[0m	
+[0mEpoch: [3][24/195]	Time 0.787 Loss 3.7663 LR 0.0120408318[0m	
+[0mEpoch: [3][25/195]	Time 0.786 Loss 3.8360 LR 0.0120408318[0m	
+[0mEpoch: [3][26/195]	Time 0.786 Loss 3.6559 LR 0.0120408318[0m	
+[0mEpoch: [3][27/195]	Time 0.787 Loss 3.8823 LR 0.0120408318[0m	
+[0mEpoch: [3][28/195]	Time 0.787 Loss 3.7497 LR 0.0120408318[0m	
+[0mEpoch: [3][29/195]	Time 0.787 Loss 3.7974 LR 0.0120408318[0m	
+[0mAccuracy top1-%: 18.75 	top5-%: 40.43 	Loss: 3.7974 	LR: 0.0120408318[0m	
+[0mEpoch: [3][30/195]	Time 0.786 Loss 3.7831 LR 0.0120408318[0m	
+[0mEpoch: [3][31/195]	Time 0.786 Loss 3.9423 LR 0.0120408318[0m	
+[0mEpoch: [3][32/195]	Time 0.787 Loss 3.7293 LR 0.0120408318[0m	
+[0mEpoch: [3][33/195]	Time 0.786 Loss 3.6355 LR 0.0120408318[0m	
+[0mEpoch: [3][34/195]	Time 0.786 Loss 3.6412 LR 0.0120408318[0m	
+[0mEpoch: [3][35/195]	Time 0.786 Loss 3.7718 LR 0.0120408318[0m	
+[0mEpoch: [3][36/195]	Time 0.787 Loss 3.7730 LR 0.0120408318[0m	
+[0mEpoch: [3][37/195]	Time 0.787 Loss 3.7824 LR 0.0120408318[0m	
+[0mEpoch: [3][38/195]	Time 0.787 Loss 3.6185 LR 0.0120408318[0m	
+[0mEpoch: [3][39/195]	Time 0.787 Loss 3.8131 LR 0.0120408318[0m	
+[0mEpoch: [3][40/195]	Time 0.787 Loss 3.6656 LR 0.0120408318[0m	
+[0mEpoch: [3][41/195]	Time 0.786 Loss 3.7209 LR 0.0120408318[0m	
+[0mEpoch: [3][42/195]	Time 0.787 Loss 3.7764 LR 0.0120408318[0m	
+[0mEpoch: [3][43/195]	Time 0.787 Loss 3.6731 LR 0.0120408318[0m	
+[0mEpoch: [3][44/195]	Time 0.786 Loss 3.6745 LR 0.0120408318[0m	
+[0mAccuracy top1-%: 21.48 	top5-%: 44.14 	Loss: 3.6745 	LR: 0.0120408318[0m	
+[0mEpoch: [3][45/195]	Time 0.787 Loss 3.7109 LR 0.0120408318[0m	
+[0mEpoch: [3][46/195]	Time 0.786 Loss 3.7132 LR 0.0120408318[0m	
+[0mEpoch: [3][47/195]	Time 0.787 Loss 3.8450 LR 0.0120408318[0m	
+[0mEpoch: [3][48/195]	Time 0.787 Loss 3.7886 LR 0.0120408318[0m	
+[0mEpoch: [3][49/195]	Time 0.786 Loss 3.7486 LR 0.0120408318[0m	
+[0mEpoch: [3][50/195]	Time 0.787 Loss 3.7722 LR 0.0120408318[0m	
+[0mEpoch: [3][51/195]	Time 0.786 Loss 3.7177 LR 0.0120408318[0m	
+[0mEpoch: [3][52/195]	Time 0.787 Loss 3.6811 LR 0.0120408318[0m	
+[0mEpoch: [3][53/195]	Time 0.787 Loss 3.8891 LR 0.0120408318[0m	
+[0mEpoch: [3][54/195]	Time 0.787 Loss 3.7101 LR 0.0120408318[0m	
+[0mEpoch: [3][55/195]	Time 0.787 Loss 3.7864 LR 0.0120408318[0m	
+[0mEpoch: [3][56/195]	Time 0.786 Loss 3.6937 LR 0.0120408318[0m	
+[0mEpoch: [3][57/195]	Time 0.787 Loss 3.7511 LR 0.0120408318[0m	
+[0mEpoch: [3][58/195]	Time 0.787 Loss 3.8217 LR 0.0120408318[0m	
+[0mEpoch: [3][59/195]	Time 0.787 Loss 3.7078 LR 0.0120408318[0m	
+[0mAccuracy top1-%: 19.73 	top5-%: 44.34 	Loss: 3.7078 	LR: 0.0120408318[0m	
+[0mEpoch: [3][60/195]	Time 0.786 Loss 3.7115 LR 0.0120408318[0m	
+[0mEpoch: [3][61/195]	Time 0.786 Loss 3.7352 LR 0.0120408318[0m	
+[0mEpoch: [3][62/195]	Time 0.786 Loss 3.7622 LR 0.0120408318[0m	
+[0mEpoch: [3][63/195]	Time 0.787 Loss 3.6968 LR 0.0120408318[0m	
+[0mEpoch: [3][64/195]	Time 0.786 Loss 3.5949 LR 0.0120408318[0m	
+[0mEpoch: [3][65/195]	Time 0.787 Loss 3.7611 LR 0.0120408318[0m	
+[0mEpoch: [3][66/195]	Time 0.787 Loss 3.7639 LR 0.0120408318[0m	
+[0mEpoch: [3][67/195]	Time 0.786 Loss 3.5459 LR 0.0120408318[0m	
+[0mEpoch: [3][68/195]	Time 0.786 Loss 3.7758 LR 0.0120408318[0m	
+[0mEpoch: [3][69/195]	Time 0.786 Loss 3.7397 LR 0.0120408318[0m	
+[0mEpoch: [3][70/195]	Time 0.787 Loss 3.6088 LR 0.0120408318[0m	
+[0mEpoch: [3][71/195]	Time 0.787 Loss 3.5768 LR 0.0120408318[0m	
+[0mEpoch: [3][72/195]	Time 0.786 Loss 3.7192 LR 0.0120408318[0m	
+[0mEpoch: [3][73/195]	Time 0.787 Loss 3.7039 LR 0.0120408318[0m	
+[0mEpoch: [3][74/195]	Time 0.786 Loss 3.8000 LR 0.0120408318[0m	
+[0mAccuracy top1-%: 18.95 	top5-%: 41.21 	Loss: 3.8000 	LR: 0.0120408318[0m	
+[0mEpoch: [3][75/195]	Time 0.786 Loss 3.6716 LR 0.0120408318[0m	
+[0mEpoch: [3][76/195]	Time 0.787 Loss 3.6453 LR 0.0120408318[0m	
+[0mEpoch: [3][77/195]	Time 0.786 Loss 3.6538 LR 0.0120408318[0m	
+[0mEpoch: [3][78/195]	Time 0.787 Loss 3.7262 LR 0.0120408318[0m	
+[0mEpoch: [3][79/195]	Time 0.787 Loss 3.5705 LR 0.0120408318[0m	
+[0mEpoch: [3][80/195]	Time 0.787 Loss 3.7062 LR 0.0120408318[0m	
+[0mEpoch: [3][81/195]	Time 0.787 Loss 3.6181 LR 0.0120408318[0m	
+[0mEpoch: [3][82/195]	Time 0.792 Loss 3.7082 LR 0.0120408318[0m	
+[0mEpoch: [3][83/195]	Time 0.789 Loss 3.6716 LR 0.0120408318[0m	
+[0mEpoch: [3][84/195]	Time 0.791 Loss 3.7425 LR 0.0120408318[0m	
+[0mEpoch: [3][85/195]	Time 0.885 Loss 3.6023 LR 0.0120408318[0m	
+[0mEpoch: [3][86/195]	Time 0.857 Loss 3.6681 LR 0.0120408318[0m	
+[0mEpoch: [3][87/195]	Time 0.787 Loss 3.7086 LR 0.0120408318[0m	
+[0mEpoch: [3][88/195]	Time 0.786 Loss 3.7904 LR 0.0120408318[0m	
+[0mEpoch: [3][89/195]	Time 0.787 Loss 3.7169 LR 0.0120408318[0m	
+[0mAccuracy top1-%: 18.36 	top5-%: 38.48 	Loss: 3.7169 	LR: 0.0120408318[0m	
+[0mEpoch: [3][90/195]	Time 0.787 Loss 3.6735 LR 0.0120408318[0m	
+[0mEpoch: [3][91/195]	Time 0.787 Loss 3.8248 LR 0.0120408318[0m	
+[0mEpoch: [3][92/195]	Time 0.787 Loss 3.7349 LR 0.0120408318[0m	
+[0mEpoch: [3][93/195]	Time 0.786 Loss 3.7136 LR 0.0120408318[0m	
+[0mEpoch: [3][94/195]	Time 0.787 Loss 3.6216 LR 0.0120408318[0m	
+[0mEpoch: [3][95/195]	Time 0.787 Loss 3.5645 LR 0.0120408318[0m	
+[0mEpoch: [3][96/195]	Time 0.786 Loss 3.7935 LR 0.0120408318[0m	
+[0mEpoch: [3][97/195]	Time 0.787 Loss 3.7918 LR 0.0120408318[0m	
+[0mEpoch: [3][98/195]	Time 0.787 Loss 3.6401 LR 0.0120408318[0m	
+[0mEpoch: [3][99/195]	Time 0.786 Loss 3.6160 LR 0.0120408318[0m	
+[0mEpoch: [3][100/195]	Time 0.786 Loss 3.6859 LR 0.0120408318[0m	
+[0mEpoch: [3][101/195]	Time 0.786 Loss 3.4966 LR 0.0120408318[0m	
+[0mEpoch: [3][102/195]	Time 0.787 Loss 3.5401 LR 0.0120408318[0m	
+[0mEpoch: [3][103/195]	Time 0.786 Loss 3.7127 LR 0.0120408318[0m	
+[0mEpoch: [3][104/195]	Time 0.787 Loss 3.5774 LR 0.0120408318[0m	
+[0mAccuracy top1-%: 21.88 	top5-%: 43.36 	Loss: 3.5774 	LR: 0.0120408318[0m	
+[0mEpoch: [3][105/195]	Time 0.786 Loss 3.4634 LR 0.0120408318[0m	
+[0mEpoch: [3][106/195]	Time 0.786 Loss 3.5099 LR 0.0120408318[0m	
+[0mEpoch: [3][107/195]	Time 0.786 Loss 3.6121 LR 0.0120408318[0m	
+[0mEpoch: [3][108/195]	Time 0.787 Loss 3.5706 LR 0.0120408318[0m	
+[0mEpoch: [3][109/195]	Time 0.787 Loss 3.5832 LR 0.0120408318[0m	
+[0mEpoch: [3][110/195]	Time 0.786 Loss 3.6924 LR 0.0120408318[0m	
+[0mEpoch: [3][111/195]	Time 0.786 Loss 3.4792 LR 0.0120408318[0m	
+[0mEpoch: [3][112/195]	Time 0.787 Loss 3.7698 LR 0.0120408318[0m	
+[0mEpoch: [3][113/195]	Time 0.786 Loss 3.4500 LR 0.0120408318[0m	
+[0mEpoch: [3][114/195]	Time 0.786 Loss 3.5214 LR 0.0120408318[0m	
+[0mEpoch: [3][115/195]	Time 0.787 Loss 3.5055 LR 0.0120408318[0m	
+[0mEpoch: [3][116/195]	Time 0.787 Loss 3.4915 LR 0.0120408318[0m	
+[0mEpoch: [3][117/195]	Time 0.787 Loss 3.6475 LR 0.0120408318[0m	
+[0mEpoch: [3][118/195]	Time 0.787 Loss 3.6174 LR 0.0120408318[0m	
+[0mEpoch: [3][119/195]	Time 0.787 Loss 3.5489 LR 0.0120408318[0m	
+[0mAccuracy top1-%: 20.31 	top5-%: 43.95 	Loss: 3.5489 	LR: 0.0120408318[0m	
+[0mEpoch: [3][120/195]	Time 0.786 Loss 3.6098 LR 0.0120408318[0m	
+[0mEpoch: [3][121/195]	Time 0.786 Loss 3.6144 LR 0.0120408318[0m	
+[0mEpoch: [3][122/195]	Time 0.786 Loss 3.7632 LR 0.0120408318[0m	
+[0mEpoch: [3][123/195]	Time 0.787 Loss 3.5242 LR 0.0120408318[0m	
+[0mEpoch: [3][124/195]	Time 0.786 Loss 3.7134 LR 0.0120408318[0m	
+[0mEpoch: [3][125/195]	Time 0.786 Loss 3.6145 LR 0.0120408318[0m	
+[0mEpoch: [3][126/195]	Time 0.786 Loss 3.6126 LR 0.0120408318[0m	
+[0mEpoch: [3][127/195]	Time 0.787 Loss 3.5732 LR 0.0120408318[0m	
+[0mEpoch: [3][128/195]	Time 0.786 Loss 3.6456 LR 0.0120408318[0m	
+[0mEpoch: [3][129/195]	Time 0.787 Loss 3.6213 LR 0.0120408318[0m	
+[0mEpoch: [3][130/195]	Time 0.786 Loss 3.6561 LR 0.0120408318[0m	
+[0mEpoch: [3][131/195]	Time 0.787 Loss 3.5727 LR 0.0120408318[0m	
+[0mEpoch: [3][132/195]	Time 0.787 Loss 3.7187 LR 0.0120408318[0m	
+[0mEpoch: [3][133/195]	Time 0.786 Loss 3.5773 LR 0.0120408318[0m	
+[0mEpoch: [3][134/195]	Time 0.787 Loss 3.4829 LR 0.0120408318[0m	
+[0mAccuracy top1-%: 24.22 	top5-%: 46.68 	Loss: 3.4829 	LR: 0.0120408318[0m	
+[0mEpoch: [3][135/195]	Time 0.786 Loss 3.5178 LR 0.0120408318[0m	
+[0mEpoch: [3][136/195]	Time 0.786 Loss 3.4888 LR 0.0120408318[0m	
+[0mEpoch: [3][137/195]	Time 0.786 Loss 3.6115 LR 0.0120408318[0m	
+[0mEpoch: [3][138/195]	Time 0.787 Loss 3.5780 LR 0.0120408318[0m	
+[0mEpoch: [3][139/195]	Time 0.786 Loss 3.6160 LR 0.0120408318[0m	
+[0mEpoch: [3][140/195]	Time 0.787 Loss 3.5118 LR 0.0120408318[0m	
+[0mEpoch: [3][141/195]	Time 0.786 Loss 3.5375 LR 0.0120408318[0m	
+[0mEpoch: [3][142/195]	Time 0.787 Loss 3.5169 LR 0.0120408318[0m	
+[0mEpoch: [3][143/195]	Time 0.787 Loss 3.7173 LR 0.0120408318[0m	
+[0mEpoch: [3][144/195]	Time 0.786 Loss 3.6112 LR 0.0120408318[0m	
+[0mEpoch: [3][145/195]	Time 0.787 Loss 3.5468 LR 0.0120408318[0m	
+[0mEpoch: [3][146/195]	Time 0.786 Loss 3.5340 LR 0.0120408318[0m	
+[0mEpoch: [3][147/195]	Time 0.787 Loss 3.5007 LR 0.0120408318[0m	
+[0mEpoch: [3][148/195]	Time 0.787 Loss 3.6860 LR 0.0120408318[0m	
+[0mEpoch: [3][149/195]	Time 0.786 Loss 3.6434 LR 0.0120408318[0m	
+[0mAccuracy top1-%: 19.53 	top5-%: 43.36 	Loss: 3.6434 	LR: 0.0120408318[0m	
+[0mEpoch: [3][150/195]	Time 0.786 Loss 3.4831 LR 0.0120408318[0m	
+[0mEpoch: [3][151/195]	Time 0.787 Loss 3.4455 LR 0.0120408318[0m	
+[0mEpoch: [3][152/195]	Time 0.787 Loss 3.4816 LR 0.0120408318[0m	
+[0mEpoch: [3][153/195]	Time 0.787 Loss 3.3951 LR 0.0120408318[0m	
+[0mEpoch: [3][154/195]	Time 0.787 Loss 3.5002 LR 0.0120408318[0m	
+[0mEpoch: [3][155/195]	Time 0.787 Loss 3.5046 LR 0.0120408318[0m	
+[0mEpoch: [3][156/195]	Time 0.787 Loss 3.3439 LR 0.0120408318[0m	
+[0mEpoch: [3][157/195]	Time 0.787 Loss 3.4188 LR 0.0120408318[0m	
+[0mEpoch: [3][158/195]	Time 0.787 Loss 3.4844 LR 0.0120408318[0m	
+[0mEpoch: [3][159/195]	Time 0.787 Loss 3.5697 LR 0.0120408318[0m	
+[0mEpoch: [3][160/195]	Time 0.787 Loss 3.4287 LR 0.0120408318[0m	
+[0mEpoch: [3][161/195]	Time 0.786 Loss 3.3880 LR 0.0120408318[0m	
+[0mEpoch: [3][162/195]	Time 0.787 Loss 3.4429 LR 0.0120408318[0m	
+[0mEpoch: [3][163/195]	Time 0.787 Loss 3.5104 LR 0.0120408318[0m	
+[0mEpoch: [3][164/195]	Time 0.787 Loss 3.5245 LR 0.0120408318[0m	
+[0mAccuracy top1-%: 25.00 	top5-%: 49.02 	Loss: 3.5245 	LR: 0.0120408318[0m	
+[0mEpoch: [3][165/195]	Time 0.786 Loss 3.4969 LR 0.0120408318[0m	
+[0mEpoch: [3][166/195]	Time 0.787 Loss 3.5695 LR 0.0120408318[0m	
+[0mEpoch: [3][167/195]	Time 0.787 Loss 3.5851 LR 0.0120408318[0m	
+[0mEpoch: [3][168/195]	Time 0.787 Loss 3.4774 LR 0.0120408318[0m	
+[0mEpoch: [3][169/195]	Time 0.787 Loss 3.4205 LR 0.0120408318[0m	
+[0mEpoch: [3][170/195]	Time 0.787 Loss 3.4641 LR 0.0120408318[0m	
+[0mEpoch: [3][171/195]	Time 0.786 Loss 3.4236 LR 0.0120408318[0m	
+[0mEpoch: [3][172/195]	Time 0.787 Loss 3.4654 LR 0.0120408318[0m	
+[0mEpoch: [3][173/195]	Time 0.787 Loss 3.4126 LR 0.0120408318[0m	
+[0mEpoch: [3][174/195]	Time 0.786 Loss 3.5460 LR 0.0120408318[0m	
+[0mEpoch: [3][175/195]	Time 0.787 Loss 3.5124 LR 0.0120408318[0m	
+[0mEpoch: [3][176/195]	Time 0.792 Loss 3.3746 LR 0.0120408318[0m	
+[0mEpoch: [3][177/195]	Time 0.792 Loss 3.4267 LR 0.0120408318[0m	
+[0mEpoch: [3][178/195]	Time 0.905 Loss 3.4968 LR 0.0120408318[0m	
+[0mEpoch: [3][179/195]	Time 0.838 Loss 3.6489 LR 0.0120408318[0m	
+[0mAccuracy top1-%: 17.58 	top5-%: 45.70 	Loss: 3.6489 	LR: 0.0120408318[0m	
+[0mEpoch: [3][180/195]	Time 0.786 Loss 3.4110 LR 0.0120408318[0m	
+[0mEpoch: [3][181/195]	Time 0.787 Loss 3.4420 LR 0.0120408318[0m	
+[0mEpoch: [3][182/195]	Time 0.787 Loss 3.4865 LR 0.0120408318[0m	
+[0mEpoch: [3][183/195]	Time 0.787 Loss 3.5543 LR 0.0120408318[0m	
+[0mEpoch: [3][184/195]	Time 0.787 Loss 3.4460 LR 0.0120408318[0m	
+[0mEpoch: [3][185/195]	Time 0.786 Loss 3.3901 LR 0.0120408318[0m	
+[0mEpoch: [3][186/195]	Time 0.787 Loss 3.3937 LR 0.0120408318[0m	
+[0mEpoch: [3][187/195]	Time 0.787 Loss 3.4248 LR 0.0120408318[0m	
+[0mEpoch: [3][188/195]	Time 0.787 Loss 3.3635 LR 0.0120408318[0m	
+[0mEpoch: [3][189/195]	Time 0.786 Loss 3.5045 LR 0.0120408318[0m	
+[0mEpoch: [3][190/195]	Time 0.786 Loss 3.3903 LR 0.0120408318[0m	
+[0mEpoch: [3][191/195]	Time 0.787 Loss 3.3091 LR 0.0120408318[0m	
+[0mEpoch: [3][192/195]	Time 0.787 Loss 3.6444 LR 0.0120408318[0m	
+[0mEpoch: [3][193/195]	Time 0.786 Loss 3.4891 LR 0.0120408318[0m	
+[0mEpoch: [3][194/195]	Time 0.786 Loss 3.4425 LR 0.0120408318[0m	
+[0mAccuracy top1-%: 24.61 	top5-%: 50.98 	Loss: 3.4425 	LR: 0.0120408318[0m	
+[0mEpoch: [3][TRAINING SUMMARY] Total Time(s): 175.29	average loss (per batch): 3.64 	 accuracy(%):	 top-1 1.36	 top-5 2.93[0m	
+[0m
+[0m	
+[0m==> doing epoch on validation data:[0m	
+[0m==> online epoch # 3[0m	
+[0mnValidate: 10000[0m	
+[0mtestBatchSize: 512[0m	
+[0mEpoch: [3][TESTING SUMMARY] Total Time(s): 5.80 	average loss (per batch): 3.68 	 accuracy [Center](%):	 top-1 18.16	 top-5 40.12	[0m	
+[0m
+[0m	
+[0m==> doing epoch on training data:[0m	
+[0m==> online epoch # 4[0m	
+[0moptimState.learningRate: 0.011438790211088[0m	
+[0mEpoch: [4][0/195]	Time 0.788 Loss 3.5017 LR 0.0114387902[0m	
+[0mEpoch: [4][1/195]	Time 0.786 Loss 3.5130 LR 0.0114387902[0m	
+[0mEpoch: [4][2/195]	Time 0.786 Loss 3.5506 LR 0.0114387902[0m	
+[0mEpoch: [4][3/195]	Time 0.787 Loss 3.5189 LR 0.0114387902[0m	
+[0mEpoch: [4][4/195]	Time 0.786 Loss 3.4382 LR 0.0114387902[0m	
+[0mEpoch: [4][5/195]	Time 0.787 Loss 3.3789 LR 0.0114387902[0m	
+[0mEpoch: [4][6/195]	Time 0.787 Loss 3.4862 LR 0.0114387902[0m	
+[0mEpoch: [4][7/195]	Time 0.786 Loss 3.3023 LR 0.0114387902[0m	
+[0mEpoch: [4][8/195]	Time 0.786 Loss 3.4792 LR 0.0114387902[0m	
+[0mEpoch: [4][9/195]	Time 0.786 Loss 3.3045 LR 0.0114387902[0m	
+[0mEpoch: [4][10/195]	Time 0.787 Loss 3.5340 LR 0.0114387902[0m	
+[0mEpoch: [4][11/195]	Time 0.787 Loss 3.4035 LR 0.0114387902[0m	
+[0mEpoch: [4][12/195]	Time 0.786 Loss 3.4373 LR 0.0114387902[0m	
+[0mEpoch: [4][13/195]	Time 0.787 Loss 3.3632 LR 0.0114387902[0m	
+[0mEpoch: [4][14/195]	Time 0.787 Loss 3.4697 LR 0.0114387902[0m	
+[0mAccuracy top1-%: 22.85 	top5-%: 47.46 	Loss: 3.4697 	LR: 0.0114387902[0m	
+[0mEpoch: [4][15/195]	Time 0.786 Loss 3.4563 LR 0.0114387902[0m	
+[0mEpoch: [4][16/195]	Time 0.787 Loss 3.5388 LR 0.0114387902[0m	
+[0mEpoch: [4][17/195]	Time 0.786 Loss 3.2229 LR 0.0114387902[0m	
+[0mEpoch: [4][18/195]	Time 0.787 Loss 3.3578 LR 0.0114387902[0m	
+[0mEpoch: [4][19/195]	Time 0.787 Loss 3.3673 LR 0.0114387902[0m	
+[0mEpoch: [4][20/195]	Time 0.787 Loss 3.2987 LR 0.0114387902[0m	
+[0mEpoch: [4][21/195]	Time 0.786 Loss 3.4637 LR 0.0114387902[0m	
+[0mEpoch: [4][22/195]	Time 0.787 Loss 3.2044 LR 0.0114387902[0m	
+[0mEpoch: [4][23/195]	Time 0.787 Loss 3.2621 LR 0.0114387902[0m	
+[0mEpoch: [4][24/195]	Time 0.786 Loss 3.3135 LR 0.0114387902[0m	
+[0mEpoch: [4][25/195]	Time 0.787 Loss 3.2480 LR 0.0114387902[0m	
+[0mEpoch: [4][26/195]	Time 0.787 Loss 3.3221 LR 0.0114387902[0m	
+[0mEpoch: [4][27/195]	Time 0.786 Loss 3.3560 LR 0.0114387902[0m	
+[0mEpoch: [4][28/195]	Time 0.786 Loss 3.3621 LR 0.0114387902[0m	
+[0mEpoch: [4][29/195]	Time 0.787 Loss 3.3853 LR 0.0114387902[0m	
+[0mAccuracy top1-%: 25.00 	top5-%: 50.59 	Loss: 3.3853 	LR: 0.0114387902[0m	
+[0mEpoch: [4][30/195]	Time 0.787 Loss 3.3035 LR 0.0114387902[0m	
+[0mEpoch: [4][31/195]	Time 0.786 Loss 3.2831 LR 0.0114387902[0m	
+[0mEpoch: [4][32/195]	Time 0.787 Loss 3.3751 LR 0.0114387902[0m	
+[0mEpoch: [4][33/195]	Time 0.787 Loss 3.2179 LR 0.0114387902[0m	
+[0mEpoch: [4][34/195]	Time 0.786 Loss 3.3024 LR 0.0114387902[0m	
+[0mEpoch: [4][35/195]	Time 0.787 Loss 3.3235 LR 0.0114387902[0m	
+[0mEpoch: [4][36/195]	Time 0.787 Loss 3.2680 LR 0.0114387902[0m	
+[0mEpoch: [4][37/195]	Time 0.787 Loss 3.2469 LR 0.0114387902[0m	
+[0mEpoch: [4][38/195]	Time 0.787 Loss 3.1359 LR 0.0114387902[0m	
+[0mEpoch: [4][39/195]	Time 0.786 Loss 3.2801 LR 0.0114387902[0m	
+[0mEpoch: [4][40/195]	Time 0.788 Loss 3.2418 LR 0.0114387902[0m	
+[0mEpoch: [4][41/195]	Time 0.786 Loss 3.1527 LR 0.0114387902[0m	
+[0mEpoch: [4][42/195]	Time 0.786 Loss 3.3216 LR 0.0114387902[0m	
+[0mEpoch: [4][43/195]	Time 0.787 Loss 3.3194 LR 0.0114387902[0m	
+[0mEpoch: [4][44/195]	Time 0.787 Loss 3.2503 LR 0.0114387902[0m	
+[0mAccuracy top1-%: 24.61 	top5-%: 50.39 	Loss: 3.2503 	LR: 0.0114387902[0m	
+[0mEpoch: [4][45/195]	Time 0.787 Loss 3.3884 LR 0.0114387902[0m	
+[0mEpoch: [4][46/195]	Time 0.787 Loss 3.3066 LR 0.0114387902[0m	
+[0mEpoch: [4][47/195]	Time 0.787 Loss 3.3041 LR 0.0114387902[0m	
+[0mEpoch: [4][48/195]	Time 0.787 Loss 3.3092 LR 0.0114387902[0m	
+[0mEpoch: [4][49/195]	Time 0.787 Loss 3.4250 LR 0.0114387902[0m	
+[0mEpoch: [4][50/195]	Time 0.787 Loss 3.3230 LR 0.0114387902[0m	
+[0mEpoch: [4][51/195]	Time 0.787 Loss 3.3415 LR 0.0114387902[0m	
+[0mEpoch: [4][52/195]	Time 0.787 Loss 3.3000 LR 0.0114387902[0m	
+[0mEpoch: [4][53/195]	Time 0.786 Loss 3.3699 LR 0.0114387902[0m	
+[0mEpoch: [4][54/195]	Time 0.786 Loss 3.4858 LR 0.0114387902[0m	
+[0mEpoch: [4][55/195]	Time 0.787 Loss 3.3411 LR 0.0114387902[0m	
+[0mEpoch: [4][56/195]	Time 0.787 Loss 3.2782 LR 0.0114387902[0m	
+[0mEpoch: [4][57/195]	Time 0.787 Loss 3.3298 LR 0.0114387902[0m	
+[0mEpoch: [4][58/195]	Time 0.786 Loss 3.2936 LR 0.0114387902[0m	
+[0mEpoch: [4][59/195]	Time 0.786 Loss 3.3134 LR 0.0114387902[0m	
+[0mAccuracy top1-%: 25.98 	top5-%: 51.95 	Loss: 3.3134 	LR: 0.0114387902[0m	
+[0mEpoch: [4][60/195]	Time 0.787 Loss 3.4088 LR 0.0114387902[0m	
+[0mEpoch: [4][61/195]	Time 0.787 Loss 3.3617 LR 0.0114387902[0m	
+[0mEpoch: [4][62/195]	Time 0.786 Loss 3.2238 LR 0.0114387902[0m	
+[0mEpoch: [4][63/195]	Time 0.786 Loss 3.2417 LR 0.0114387902[0m	
+[0mEpoch: [4][64/195]	Time 0.787 Loss 3.0594 LR 0.0114387902[0m	
+[0mEpoch: [4][65/195]	Time 0.787 Loss 3.2877 LR 0.0114387902[0m	
+[0mEpoch: [4][66/195]	Time 0.787 Loss 3.4177 LR 0.0114387902[0m	
+[0mEpoch: [4][67/195]	Time 0.786 Loss 3.4899 LR 0.0114387902[0m	
+[0mEpoch: [4][68/195]	Time 0.786 Loss 3.3007 LR 0.0114387902[0m	
+[0mEpoch: [4][69/195]	Time 0.787 Loss 3.1904 LR 0.0114387902[0m	
+[0mEpoch: [4][70/195]	Time 0.787 Loss 3.2631 LR 0.0114387902[0m	
+[0mEpoch: [4][71/195]	Time 0.787 Loss 3.4026 LR 0.0114387902[0m	
+[0mEpoch: [4][72/195]	Time 0.786 Loss 3.4288 LR 0.0114387902[0m	
+[0mEpoch: [4][73/195]	Time 0.787 Loss 3.2439 LR 0.0114387902[0m	
+[0mEpoch: [4][74/195]	Time 0.786 Loss 3.3259 LR 0.0114387902[0m	
+[0mAccuracy top1-%: 26.17 	top5-%: 53.52 	Loss: 3.3259 	LR: 0.0114387902[0m	
+[0mEpoch: [4][75/195]	Time 0.787 Loss 3.1760 LR 0.0114387902[0m	
+[0mEpoch: [4][76/195]	Time 0.787 Loss 3.3827 LR 0.0114387902[0m	
+[0mEpoch: [4][77/195]	Time 0.787 Loss 3.4000 LR 0.0114387902[0m	
+[0mEpoch: [4][78/195]	Time 0.786 Loss 3.3627 LR 0.0114387902[0m	
+[0mEpoch: [4][79/195]	Time 0.787 Loss 3.2778 LR 0.0114387902[0m	
+[0mEpoch: [4][80/195]	Time 0.786 Loss 3.2778 LR 0.0114387902[0m	
+[0mEpoch: [4][81/195]	Time 0.787 Loss 3.2505 LR 0.0114387902[0m	
+[0mEpoch: [4][82/195]	Time 0.787 Loss 3.1953 LR 0.0114387902[0m	
+[0mEpoch: [4][83/195]	Time 0.786 Loss 3.2360 LR 0.0114387902[0m	
+[0mEpoch: [4][84/195]	Time 0.786 Loss 3.3102 LR 0.0114387902[0m	
+[0mEpoch: [4][85/195]	Time 0.787 Loss 3.1651 LR 0.0114387902[0m	
+[0mEpoch: [4][86/195]	Time 0.787 Loss 3.1286 LR 0.0114387902[0m	
+[0mEpoch: [4][87/195]	Time 0.786 Loss 3.2192 LR 0.0114387902[0m	
+[0mEpoch: [4][88/195]	Time 0.786 Loss 3.1102 LR 0.0114387902[0m	
+[0mEpoch: [4][89/195]	Time 0.787 Loss 3.1564 LR 0.0114387902[0m	
+[0mAccuracy top1-%: 30.08 	top5-%: 55.47 	Loss: 3.1564 	LR: 0.0114387902[0m	
+[0mEpoch: [4][90/195]	Time 0.787 Loss 3.2369 LR 0.0114387902[0m	
+[0mEpoch: [4][91/195]	Time 0.787 Loss 3.1553 LR 0.0114387902[0m	
+[0mEpoch: [4][92/195]	Time 0.787 Loss 3.1991 LR 0.0114387902[0m	
+[0mEpoch: [4][93/195]	Time 0.787 Loss 3.2036 LR 0.0114387902[0m	
+[0mEpoch: [4][94/195]	Time 0.787 Loss 3.1992 LR 0.0114387902[0m	
+[0mEpoch: [4][95/195]	Time 0.788 Loss 3.1933 LR 0.0114387902[0m	
+[0mEpoch: [4][96/195]	Time 0.787 Loss 3.2061 LR 0.0114387902[0m	
+[0mEpoch: [4][97/195]	Time 0.786 Loss 3.1472 LR 0.0114387902[0m	
+[0mEpoch: [4][98/195]	Time 0.786 Loss 3.2463 LR 0.0114387902[0m	
+[0mEpoch: [4][99/195]	Time 0.786 Loss 3.3469 LR 0.0114387902[0m	
+[0mEpoch: [4][100/195]	Time 0.787 Loss 3.2311 LR 0.0114387902[0m	
+[0mEpoch: [4][101/195]	Time 0.787 Loss 3.3503 LR 0.0114387902[0m	
+[0mEpoch: [4][102/195]	Time 0.787 Loss 3.1653 LR 0.0114387902[0m	
+[0mEpoch: [4][103/195]	Time 0.786 Loss 3.2415 LR 0.0114387902[0m	
+[0mEpoch: [4][104/195]	Time 0.786 Loss 3.1306 LR 0.0114387902[0m	
+[0mAccuracy top1-%: 31.64 	top5-%: 55.27 	Loss: 3.1306 	LR: 0.0114387902[0m	
+[0mEpoch: [4][105/195]	Time 0.787 Loss 3.1028 LR 0.0114387902[0m	
+[0mEpoch: [4][106/195]	Time 0.787 Loss 3.2959 LR 0.0114387902[0m	
+[0mEpoch: [4][107/195]	Time 0.787 Loss 3.2113 LR 0.0114387902[0m	
+[0mEpoch: [4][108/195]	Time 0.787 Loss 3.1137 LR 0.0114387902[0m	
+[0mEpoch: [4][109/195]	Time 0.786 Loss 3.1362 LR 0.0114387902[0m	
+[0mEpoch: [4][110/195]	Time 0.787 Loss 3.1783 LR 0.0114387902[0m	
+[0mEpoch: [4][111/195]	Time 0.787 Loss 3.1226 LR 0.0114387902[0m	
+[0mEpoch: [4][112/195]	Time 0.787 Loss 3.1863 LR 0.0114387902[0m	
+[0mEpoch: [4][113/195]	Time 0.786 Loss 3.1636 LR 0.0114387902[0m	
+[0mEpoch: [4][114/195]	Time 0.786 Loss 3.2508 LR 0.0114387902[0m	
+[0mEpoch: [4][115/195]	Time 0.786 Loss 3.0688 LR 0.0114387902[0m	
+[0mEpoch: [4][116/195]	Time 0.787 Loss 3.2121 LR 0.0114387902[0m	
+[0mEpoch: [4][117/195]	Time 0.787 Loss 3.2312 LR 0.0114387902[0m	
+[0mEpoch: [4][118/195]	Time 0.787 Loss 3.1743 LR 0.0114387902[0m	
+[0mEpoch: [4][119/195]	Time 0.786 Loss 3.1914 LR 0.0114387902[0m	
+[0mAccuracy top1-%: 26.17 	top5-%: 54.49 	Loss: 3.1914 	LR: 0.0114387902[0m	
+[0mEpoch: [4][120/195]	Time 0.787 Loss 3.2573 LR 0.0114387902[0m	
+[0mEpoch: [4][121/195]	Time 0.787 Loss 3.0860 LR 0.0114387902[0m	
+[0mEpoch: [4][122/195]	Time 0.786 Loss 3.1823 LR 0.0114387902[0m	
+[0mEpoch: [4][123/195]	Time 0.787 Loss 3.1965 LR 0.0114387902[0m	
+[0mEpoch: [4][124/195]	Time 0.787 Loss 3.1877 LR 0.0114387902[0m	
+[0mEpoch: [4][125/195]	Time 0.786 Loss 3.2467 LR 0.0114387902[0m	
+[0mEpoch: [4][126/195]	Time 0.787 Loss 3.2332 LR 0.0114387902[0m	
+[0mEpoch: [4][127/195]	Time 0.786 Loss 3.1987 LR 0.0114387902[0m	
+[0mEpoch: [4][128/195]	Time 0.787 Loss 3.2579 LR 0.0114387902[0m	
+[0mEpoch: [4][129/195]	Time 0.786 Loss 3.2307 LR 0.0114387902[0m	
+[0mEpoch: [4][130/195]	Time 0.786 Loss 3.2370 LR 0.0114387902[0m	
+[0mEpoch: [4][131/195]	Time 0.787 Loss 3.0331 LR 0.0114387902[0m	
+[0mEpoch: [4][132/195]	Time 0.787 Loss 3.1344 LR 0.0114387902[0m	
+[0mEpoch: [4][133/195]	Time 0.786 Loss 3.1244 LR 0.0114387902[0m	
+[0mEpoch: [4][134/195]	Time 0.787 Loss 3.1037 LR 0.0114387902[0m	
+[0mAccuracy top1-%: 31.45 	top5-%: 53.12 	Loss: 3.1037 	LR: 0.0114387902[0m	
+[0mEpoch: [4][135/195]	Time 0.787 Loss 3.0794 LR 0.0114387902[0m	
+[0mEpoch: [4][136/195]	Time 0.787 Loss 3.1236 LR 0.0114387902[0m	
+[0mEpoch: [4][137/195]	Time 0.786 Loss 3.0484 LR 0.0114387902[0m	
+[0mEpoch: [4][138/195]	Time 0.786 Loss 3.3090 LR 0.0114387902[0m	
+[0mEpoch: [4][139/195]	Time 0.786 Loss 3.0306 LR 0.0114387902[0m	
+[0mEpoch: [4][140/195]	Time 0.787 Loss 3.1737 LR 0.0114387902[0m	
+[0mEpoch: [4][141/195]	Time 0.787 Loss 3.1481 LR 0.0114387902[0m	
+[0mEpoch: [4][142/195]	Time 0.786 Loss 3.0420 LR 0.0114387902[0m	
+[0mEpoch: [4][143/195]	Time 0.786 Loss 3.1632 LR 0.0114387902[0m	
+[0mEpoch: [4][144/195]	Time 0.786 Loss 3.1537 LR 0.0114387902[0m	
+[0mEpoch: [4][145/195]	Time 0.786 Loss 3.1595 LR 0.0114387902[0m	
+[0mEpoch: [4][146/195]	Time 0.787 Loss 3.1177 LR 0.0114387902[0m	
+[0mEpoch: [4][147/195]	Time 0.786 Loss 3.1821 LR 0.0114387902[0m	
+[0mEpoch: [4][148/195]	Time 0.786 Loss 3.2601 LR 0.0114387902[0m	
+[0mEpoch: [4][149/195]	Time 0.787 Loss 3.0288 LR 0.0114387902[0m	
+[0mAccuracy top1-%: 28.12 	top5-%: 57.81 	Loss: 3.0288 	LR: 0.0114387902[0m	
+[0mEpoch: [4][150/195]	Time 0.787 Loss 2.9923 LR 0.0114387902[0m	
+[0mEpoch: [4][151/195]	Time 0.787 Loss 3.1992 LR 0.0114387902[0m	
+[0mEpoch: [4][152/195]	Time 0.786 Loss 3.1474 LR 0.0114387902[0m	
+[0mEpoch: [4][153/195]	Time 0.787 Loss 3.1249 LR 0.0114387902[0m	
+[0mEpoch: [4][154/195]	Time 0.787 Loss 3.0703 LR 0.0114387902[0m	
+[0mEpoch: [4][155/195]	Time 0.787 Loss 3.0685 LR 0.0114387902[0m	
+[0mEpoch: [4][156/195]	Time 0.787 Loss 3.2152 LR 0.0114387902[0m	
+[0mEpoch: [4][157/195]	Time 0.787 Loss 3.3624 LR 0.0114387902[0m	
+[0mEpoch: [4][158/195]	Time 0.787 Loss 3.1644 LR 0.0114387902[0m	
+[0mEpoch: [4][159/195]	Time 0.786 Loss 3.1774 LR 0.0114387902[0m	
+[0mEpoch: [4][160/195]	Time 0.787 Loss 3.0126 LR 0.0114387902[0m	
+[0mEpoch: [4][161/195]	Time 0.786 Loss 3.1307 LR 0.0114387902[0m	
+[0mEpoch: [4][162/195]	Time 0.787 Loss 3.1427 LR 0.0114387902[0m	
+[0mEpoch: [4][163/195]	Time 0.786 Loss 3.0470 LR 0.0114387902[0m	
+[0mEpoch: [4][164/195]	Time 0.786 Loss 3.1800 LR 0.0114387902[0m	
+[0mAccuracy top1-%: 32.81 	top5-%: 54.88 	Loss: 3.1800 	LR: 0.0114387902[0m	
+[0mEpoch: [4][165/195]	Time 0.787 Loss 3.0311 LR 0.0114387902[0m	
+[0mEpoch: [4][166/195]	Time 0.787 Loss 2.8937 LR 0.0114387902[0m	
+[0mEpoch: [4][167/195]	Time 0.786 Loss 3.1898 LR 0.0114387902[0m	
+[0mEpoch: [4][168/195]	Time 0.786 Loss 2.8862 LR 0.0114387902[0m	
+[0mEpoch: [4][169/195]	Time 0.786 Loss 2.9101 LR 0.0114387902[0m	
+[0mEpoch: [4][170/195]	Time 0.787 Loss 2.8938 LR 0.0114387902[0m	
+[0mEpoch: [4][171/195]	Time 0.786 Loss 3.0167 LR 0.0114387902[0m	
+[0mEpoch: [4][172/195]	Time 0.786 Loss 3.0091 LR 0.0114387902[0m	
+[0mEpoch: [4][173/195]	Time 0.787 Loss 2.9955 LR 0.0114387902[0m	
+[0mEpoch: [4][174/195]	Time 0.786 Loss 3.1219 LR 0.0114387902[0m	
+[0mEpoch: [4][175/195]	Time 0.787 Loss 3.0613 LR 0.0114387902[0m	
+[0mEpoch: [4][176/195]	Time 0.786 Loss 2.9521 LR 0.0114387902[0m	
+[0mEpoch: [4][177/195]	Time 0.786 Loss 3.1342 LR 0.0114387902[0m	
+[0mEpoch: [4][178/195]	Time 0.787 Loss 3.1456 LR 0.0114387902[0m	
+[0mEpoch: [4][179/195]	Time 0.787 Loss 3.0823 LR 0.0114387902[0m	
+[0mAccuracy top1-%: 32.03 	top5-%: 56.84 	Loss: 3.0823 	LR: 0.0114387902[0m	
+[0mEpoch: [4][180/195]	Time 0.786 Loss 3.0285 LR 0.0114387902[0m	
+[0mEpoch: [4][181/195]	Time 0.787 Loss 3.0833 LR 0.0114387902[0m	
+[0mEpoch: [4][182/195]	Time 0.786 Loss 2.9306 LR 0.0114387902[0m	
+[0mEpoch: [4][183/195]	Time 0.786 Loss 3.0638 LR 0.0114387902[0m	
+[0mEpoch: [4][184/195]	Time 0.787 Loss 3.0384 LR 0.0114387902[0m	
+[0mEpoch: [4][185/195]	Time 0.787 Loss 3.1229 LR 0.0114387902[0m	
+[0mEpoch: [4][186/195]	Time 0.786 Loss 3.0537 LR 0.0114387902[0m	
+[0mEpoch: [4][187/195]	Time 0.786 Loss 2.9126 LR 0.0114387902[0m	
+[0mEpoch: [4][188/195]	Time 0.786 Loss 2.9898 LR 0.0114387902[0m	
+[0mEpoch: [4][189/195]	Time 0.787 Loss 3.0555 LR 0.0114387902[0m	
+[0mEpoch: [4][190/195]	Time 0.787 Loss 2.9890 LR 0.0114387902[0m	
+[0mEpoch: [4][191/195]	Time 0.786 Loss 3.0821 LR 0.0114387902[0m	
+[0mEpoch: [4][192/195]	Time 0.787 Loss 3.0672 LR 0.0114387902[0m	
+[0mEpoch: [4][193/195]	Time 0.786 Loss 3.0809 LR 0.0114387902[0m	
+[0mEpoch: [4][194/195]	Time 0.787 Loss 2.8881 LR 0.0114387902[0m	
+[0mAccuracy top1-%: 36.91 	top5-%: 59.38 	Loss: 2.8881 	LR: 0.0114387902[0m	
+[0mEpoch: [4][TRAINING SUMMARY] Total Time(s): 171.63	average loss (per batch): 3.21 	 accuracy(%):	 top-1 1.91	 top-5 3.59[0m	
+[0m
+[0m	
+[0m==> doing epoch on validation data:[0m	
+[0m==> online epoch # 4[0m	
+[0mnValidate: 10000[0m	
+[0mtestBatchSize: 512[0m	
+[0mEpoch: [4][TESTING SUMMARY] Total Time(s): 5.73 	average loss (per batch): 3.52 	 accuracy [Center](%):	 top-1 21.42	 top-5 44.65	[0m	
+[0m
+[0m	
+[0m==> doing epoch on training data:[0m	
+[0m==> online epoch # 5[0m	
+[0moptimState.learningRate: 0.010866850700533[0m	
+[0mEpoch: [5][0/195]	Time 0.789 Loss 3.0145 LR 0.0108668507[0m	
+[0mEpoch: [5][1/195]	Time 0.787 Loss 3.1240 LR 0.0108668507[0m	
+[0mEpoch: [5][2/195]	Time 0.786 Loss 3.0597 LR 0.0108668507[0m	
+[0mEpoch: [5][3/195]	Time 0.787 Loss 2.9974 LR 0.0108668507[0m	
+[0mEpoch: [5][4/195]	Time 0.786 Loss 2.8629 LR 0.0108668507[0m	
+[0mEpoch: [5][5/195]	Time 0.786 Loss 3.0763 LR 0.0108668507[0m	
+[0mEpoch: [5][6/195]	Time 0.787 Loss 3.0076 LR 0.0108668507[0m	
+[0mEpoch: [5][7/195]	Time 0.786 Loss 3.0185 LR 0.0108668507[0m	
+[0mEpoch: [5][8/195]	Time 0.787 Loss 3.0652 LR 0.0108668507[0m	
+[0mEpoch: [5][9/195]	Time 0.787 Loss 2.9655 LR 0.0108668507[0m	
+[0mEpoch: [5][10/195]	Time 0.787 Loss 3.1469 LR 0.0108668507[0m	
+[0mEpoch: [5][11/195]	Time 0.786 Loss 2.9854 LR 0.0108668507[0m	
+[0mEpoch: [5][12/195]	Time 0.786 Loss 2.7893 LR 0.0108668507[0m	
+[0mEpoch: [5][13/195]	Time 0.786 Loss 2.9862 LR 0.0108668507[0m	
+[0mEpoch: [5][14/195]	Time 0.787 Loss 3.0835 LR 0.0108668507[0m	
+[0mAccuracy top1-%: 32.23 	top5-%: 56.25 	Loss: 3.0835 	LR: 0.0108668507[0m	
+[0mEpoch: [5][15/195]	Time 0.786 Loss 3.0009 LR 0.0108668507[0m	
+[0mEpoch: [5][16/195]	Time 0.787 Loss 3.1148 LR 0.0108668507[0m	
+[0mEpoch: [5][17/195]	Time 0.787 Loss 2.8779 LR 0.0108668507[0m	
+[0mEpoch: [5][18/195]	Time 0.787 Loss 2.9786 LR 0.0108668507[0m	
+[0mEpoch: [5][19/195]	Time 0.787 Loss 3.1659 LR 0.0108668507[0m	
+[0mEpoch: [5][20/195]	Time 0.787 Loss 2.8462 LR 0.0108668507[0m	
+[0mEpoch: [5][21/195]	Time 0.787 Loss 2.9277 LR 0.0108668507[0m	
+[0mEpoch: [5][22/195]	Time 0.787 Loss 2.9093 LR 0.0108668507[0m	
+[0mEpoch: [5][23/195]	Time 0.787 Loss 3.1016 LR 0.0108668507[0m	
+[0mEpoch: [5][24/195]	Time 0.787 Loss 3.1129 LR 0.0108668507[0m	
+[0mEpoch: [5][25/195]	Time 0.786 Loss 2.8200 LR 0.0108668507[0m	
+[0mEpoch: [5][26/195]	Time 0.787 Loss 3.0535 LR 0.0108668507[0m	
+[0mEpoch: [5][27/195]	Time 0.787 Loss 2.8705 LR 0.0108668507[0m	
+[0mEpoch: [5][28/195]	Time 0.786 Loss 2.8861 LR 0.0108668507[0m	
+[0mEpoch: [5][29/195]	Time 0.787 Loss 2.8439 LR 0.0108668507[0m	
+[0mAccuracy top1-%: 32.81 	top5-%: 61.91 	Loss: 2.8439 	LR: 0.0108668507[0m	
+[0mEpoch: [5][30/195]	Time 0.787 Loss 3.0543 LR 0.0108668507[0m	
+[0mEpoch: [5][31/195]	Time 0.786 Loss 2.8449 LR 0.0108668507[0m	
+[0mEpoch: [5][32/195]	Time 0.786 Loss 2.8723 LR 0.0108668507[0m	
+[0mEpoch: [5][33/195]	Time 0.786 Loss 2.9143 LR 0.0108668507[0m	
+[0mEpoch: [5][34/195]	Time 0.786 Loss 2.9273 LR 0.0108668507[0m	
+[0mEpoch: [5][35/195]	Time 0.787 Loss 2.8741 LR 0.0108668507[0m	
+[0mEpoch: [5][36/195]	Time 0.787 Loss 3.0239 LR 0.0108668507[0m	
+[0mEpoch: [5][37/195]	Time 0.786 Loss 2.7493 LR 0.0108668507[0m	
+[0mEpoch: [5][38/195]	Time 0.786 Loss 2.7435 LR 0.0108668507[0m	
+[0mEpoch: [5][39/195]	Time 0.786 Loss 3.0005 LR 0.0108668507[0m	
+[0mEpoch: [5][40/195]	Time 0.786 Loss 2.8894 LR 0.0108668507[0m	
+[0mEpoch: [5][41/195]	Time 0.786 Loss 2.9572 LR 0.0108668507[0m	
+[0mEpoch: [5][42/195]	Time 0.787 Loss 2.9249 LR 0.0108668507[0m	
+[0mEpoch: [5][43/195]	Time 0.787 Loss 2.8659 LR 0.0108668507[0m	
+[0mEpoch: [5][44/195]	Time 0.786 Loss 3.0125 LR 0.0108668507[0m	
+[0mAccuracy top1-%: 34.77 	top5-%: 57.81 	Loss: 3.0125 	LR: 0.0108668507[0m	
+[0mEpoch: [5][45/195]	Time 0.786 Loss 2.9121 LR 0.0108668507[0m	
+[0mEpoch: [5][46/195]	Time 0.787 Loss 2.8437 LR 0.0108668507[0m	
+[0mEpoch: [5][47/195]	Time 0.787 Loss 2.8863 LR 0.0108668507[0m	
+[0mEpoch: [5][48/195]	Time 0.786 Loss 2.7744 LR 0.0108668507[0m	
+[0mEpoch: [5][49/195]	Time 0.787 Loss 2.9582 LR 0.0108668507[0m	
+[0mEpoch: [5][50/195]	Time 0.787 Loss 2.8839 LR 0.0108668507[0m	
+[0mEpoch: [5][51/195]	Time 0.787 Loss 2.8507 LR 0.0108668507[0m	
+[0mEpoch: [5][52/195]	Time 0.786 Loss 2.8970 LR 0.0108668507[0m	
+[0mEpoch: [5][53/195]	Time 0.787 Loss 2.8076 LR 0.0108668507[0m	
+[0mEpoch: [5][54/195]	Time 0.786 Loss 2.7528 LR 0.0108668507[0m	
+[0mEpoch: [5][55/195]	Time 0.788 Loss 2.9874 LR 0.0108668507[0m	
+[0mEpoch: [5][56/195]	Time 0.787 Loss 2.8914 LR 0.0108668507[0m	
+[0mEpoch: [5][57/195]	Time 0.786 Loss 2.8688 LR 0.0108668507[0m	
+[0mEpoch: [5][58/195]	Time 0.786 Loss 2.9878 LR 0.0108668507[0m	
+[0mEpoch: [5][59/195]	Time 0.786 Loss 2.9454 LR 0.0108668507[0m	
+[0mAccuracy top1-%: 31.45 	top5-%: 59.57 	Loss: 2.9454 	LR: 0.0108668507[0m	
+[0mEpoch: [5][60/195]	Time 0.786 Loss 2.9136 LR 0.0108668507[0m	
+[0mEpoch: [5][61/195]	Time 0.787 Loss 2.9676 LR 0.0108668507[0m	
+[0mEpoch: [5][62/195]	Time 0.786 Loss 3.0138 LR 0.0108668507[0m	
+[0mEpoch: [5][63/195]	Time 0.786 Loss 2.8019 LR 0.0108668507[0m	
+[0mEpoch: [5][64/195]	Time 0.786 Loss 2.8617 LR 0.0108668507[0m	
+[0mEpoch: [5][65/195]	Time 0.786 Loss 2.8946 LR 0.0108668507[0m	
+[0mEpoch: [5][66/195]	Time 0.787 Loss 2.7746 LR 0.0108668507[0m	
+[0mEpoch: [5][67/195]	Time 0.787 Loss 2.8098 LR 0.0108668507[0m	
+[0mEpoch: [5][68/195]	Time 0.787 Loss 2.8179 LR 0.0108668507[0m	
+[0mEpoch: [5][69/195]	Time 0.786 Loss 2.7995 LR 0.0108668507[0m	
+[0mEpoch: [5][70/195]	Time 0.787 Loss 2.8418 LR 0.0108668507[0m	
+[0mEpoch: [5][71/195]	Time 0.786 Loss 2.9120 LR 0.0108668507[0m	
+[0mEpoch: [5][72/195]	Time 0.787 Loss 2.7980 LR 0.0108668507[0m	
+[0mEpoch: [5][73/195]	Time 0.786 Loss 2.7286 LR 0.0108668507[0m	
+[0mEpoch: [5][74/195]	Time 0.787 Loss 2.7210 LR 0.0108668507[0m	
+[0mAccuracy top1-%: 35.55 	top5-%: 63.67 	Loss: 2.7210 	LR: 0.0108668507[0m	
+[0mEpoch: [5][75/195]	Time 0.787 Loss 2.9366 LR 0.0108668507[0m	
+[0mEpoch: [5][76/195]	Time 0.786 Loss 2.7124 LR 0.0108668507[0m	
+[0mEpoch: [5][77/195]	Time 0.786 Loss 2.8276 LR 0.0108668507[0m	
+[0mEpoch: [5][78/195]	Time 0.786 Loss 2.7899 LR 0.0108668507[0m	
+[0mEpoch: [5][79/195]	Time 0.786 Loss 2.8374 LR 0.0108668507[0m	
+[0mEpoch: [5][80/195]	Time 0.788 Loss 2.8454 LR 0.0108668507[0m	
+[0mEpoch: [5][81/195]	Time 0.787 Loss 2.8308 LR 0.0108668507[0m	
+[0mEpoch: [5][82/195]	Time 0.786 Loss 2.9902 LR 0.0108668507[0m	
+[0mEpoch: [5][83/195]	Time 0.786 Loss 2.8560 LR 0.0108668507[0m	
+[0mEpoch: [5][84/195]	Time 0.786 Loss 2.7988 LR 0.0108668507[0m	
+[0mEpoch: [5][85/195]	Time 0.787 Loss 2.9226 LR 0.0108668507[0m	
+[0mEpoch: [5][86/195]	Time 0.787 Loss 2.8621 LR 0.0108668507[0m	
+[0mEpoch: [5][87/195]	Time 0.786 Loss 2.7564 LR 0.0108668507[0m	
+[0mEpoch: [5][88/195]	Time 0.786 Loss 2.8031 LR 0.0108668507[0m	
+[0mEpoch: [5][89/195]	Time 0.786 Loss 2.7444 LR 0.0108668507[0m	
+[0mAccuracy top1-%: 37.11 	top5-%: 61.91 	Loss: 2.7444 	LR: 0.0108668507[0m	
+[0mEpoch: [5][90/195]	Time 0.787 Loss 2.8923 LR 0.0108668507[0m	
+[0mEpoch: [5][91/195]	Time 0.787 Loss 2.8377 LR 0.0108668507[0m	
+[0mEpoch: [5][92/195]	Time 0.786 Loss 2.7726 LR 0.0108668507[0m	
+[0mEpoch: [5][93/195]	Time 0.786 Loss 2.9199 LR 0.0108668507[0m	
+[0mEpoch: [5][94/195]	Time 0.787 Loss 2.7126 LR 0.0108668507[0m	
+[0mEpoch: [5][95/195]	Time 0.787 Loss 2.8287 LR 0.0108668507[0m	
+[0mEpoch: [5][96/195]	Time 0.787 Loss 2.9018 LR 0.0108668507[0m	
+[0mEpoch: [5][97/195]	Time 0.787 Loss 2.8279 LR 0.0108668507[0m	
+[0mEpoch: [5][98/195]	Time 0.786 Loss 2.6952 LR 0.0108668507[0m	
+[0mEpoch: [5][99/195]	Time 0.786 Loss 2.8276 LR 0.0108668507[0m	
+[0mEpoch: [5][100/195]	Time 0.787 Loss 2.8298 LR 0.0108668507[0m	
+[0mEpoch: [5][101/195]	Time 0.786 Loss 2.7611 LR 0.0108668507[0m	
+[0mEpoch: [5][102/195]	Time 0.786 Loss 2.7461 LR 0.0108668507[0m	
+[0mEpoch: [5][103/195]	Time 0.787 Loss 2.9008 LR 0.0108668507[0m	
+[0mEpoch: [5][104/195]	Time 0.786 Loss 2.8457 LR 0.0108668507[0m	
+[0mAccuracy top1-%: 34.77 	top5-%: 61.33 	Loss: 2.8457 	LR: 0.0108668507[0m	
+[0mEpoch: [5][105/195]	Time 0.787 Loss 2.8156 LR 0.0108668507[0m	
+[0mEpoch: [5][106/195]	Time 0.786 Loss 2.7929 LR 0.0108668507[0m	
+[0mEpoch: [5][107/195]	Time 0.786 Loss 2.7226 LR 0.0108668507[0m	
+[0mEpoch: [5][108/195]	Time 0.787 Loss 2.7356 LR 0.0108668507[0m	
+[0mEpoch: [5][109/195]	Time 0.786 Loss 2.8029 LR 0.0108668507[0m	
+[0mEpoch: [5][110/195]	Time 0.786 Loss 2.8878 LR 0.0108668507[0m	
+[0mEpoch: [5][111/195]	Time 0.786 Loss 2.9201 LR 0.0108668507[0m	
+[0mEpoch: [5][112/195]	Time 0.786 Loss 2.7290 LR 0.0108668507[0m	
+[0mEpoch: [5][113/195]	Time 0.786 Loss 2.7140 LR 0.0108668507[0m	
+[0mEpoch: [5][114/195]	Time 0.786 Loss 2.8655 LR 0.0108668507[0m	
+[0mEpoch: [5][115/195]	Time 0.787 Loss 2.8404 LR 0.0108668507[0m	
+[0mEpoch: [5][116/195]	Time 0.786 Loss 2.6979 LR 0.0108668507[0m	
+[0mEpoch: [5][117/195]	Time 0.786 Loss 2.7030 LR 0.0108668507[0m	
+[0mEpoch: [5][118/195]	Time 0.786 Loss 2.7120 LR 0.0108668507[0m	
+[0mEpoch: [5][119/195]	Time 0.786 Loss 2.7285 LR 0.0108668507[0m	
+[0mAccuracy top1-%: 38.67 	top5-%: 63.87 	Loss: 2.7285 	LR: 0.0108668507[0m	
+[0mEpoch: [5][120/195]	Time 0.788 Loss 2.6986 LR 0.0108668507[0m	
+[0mEpoch: [5][121/195]	Time 0.787 Loss 2.7384 LR 0.0108668507[0m	
+[0mEpoch: [5][122/195]	Time 0.786 Loss 2.7203 LR 0.0108668507[0m	
+[0mEpoch: [5][123/195]	Time 0.787 Loss 2.6148 LR 0.0108668507[0m	
+[0mEpoch: [5][124/195]	Time 0.786 Loss 2.6995 LR 0.0108668507[0m	
+[0mEpoch: [5][125/195]	Time 0.787 Loss 2.7190 LR 0.0108668507[0m	
+[0mEpoch: [5][126/195]	Time 0.787 Loss 2.8002 LR 0.0108668507[0m	
+[0mEpoch: [5][127/195]	Time 0.786 Loss 2.7236 LR 0.0108668507[0m	
+[0mEpoch: [5][128/195]	Time 0.786 Loss 2.7397 LR 0.0108668507[0m	
+[0mEpoch: [5][129/195]	Time 0.787 Loss 2.7021 LR 0.0108668507[0m	
+[0mEpoch: [5][130/195]	Time 0.787 Loss 2.7599 LR 0.0108668507[0m	
+[0mEpoch: [5][131/195]	Time 0.786 Loss 2.6212 LR 0.0108668507[0m	
+[0mEpoch: [5][132/195]	Time 0.786 Loss 2.7822 LR 0.0108668507[0m	
+[0mEpoch: [5][133/195]	Time 0.787 Loss 2.6327 LR 0.0108668507[0m	
+[0mEpoch: [5][134/195]	Time 0.786 Loss 2.7386 LR 0.0108668507[0m	
+[0mAccuracy top1-%: 36.33 	top5-%: 65.04 	Loss: 2.7386 	LR: 0.0108668507[0m	
+[0mEpoch: [5][135/195]	Time 0.787 Loss 2.6439 LR 0.0108668507[0m	
+[0mEpoch: [5][136/195]	Time 0.786 Loss 2.7734 LR 0.0108668507[0m	
+[0mEpoch: [5][137/195]	Time 0.787 Loss 2.8109 LR 0.0108668507[0m	
+[0mEpoch: [5][138/195]	Time 0.786 Loss 2.4567 LR 0.0108668507[0m	
+[0mEpoch: [5][139/195]	Time 0.786 Loss 2.6639 LR 0.0108668507[0m	
+[0mEpoch: [5][140/195]	Time 0.787 Loss 2.7425 LR 0.0108668507[0m	
+[0mEpoch: [5][141/195]	Time 0.786 Loss 2.6260 LR 0.0108668507[0m	
+[0mEpoch: [5][142/195]	Time 0.786 Loss 2.7985 LR 0.0108668507[0m	
+[0mEpoch: [5][143/195]	Time 0.786 Loss 2.7421 LR 0.0108668507[0m	
+[0mEpoch: [5][144/195]	Time 0.786 Loss 2.7582 LR 0.0108668507[0m	
+[0mEpoch: [5][145/195]	Time 0.787 Loss 2.8333 LR 0.0108668507[0m	
+[0mEpoch: [5][146/195]	Time 0.786 Loss 2.8078 LR 0.0108668507[0m	
+[0mEpoch: [5][147/195]	Time 0.786 Loss 2.7802 LR 0.0108668507[0m	
+[0mEpoch: [5][148/195]	Time 0.786 Loss 2.7194 LR 0.0108668507[0m	
+[0mEpoch: [5][149/195]	Time 0.786 Loss 2.6223 LR 0.0108668507[0m	
+[0mAccuracy top1-%: 38.87 	top5-%: 66.99 	Loss: 2.6223 	LR: 0.0108668507[0m	
+[0mEpoch: [5][150/195]	Time 0.787 Loss 2.6747 LR 0.0108668507[0m	
+[0mEpoch: [5][151/195]	Time 0.786 Loss 2.7725 LR 0.0108668507[0m	
+[0mEpoch: [5][152/195]	Time 0.786 Loss 2.6374 LR 0.0108668507[0m	
+[0mEpoch: [5][153/195]	Time 0.786 Loss 2.7628 LR 0.0108668507[0m	
+[0mEpoch: [5][154/195]	Time 0.786 Loss 2.7439 LR 0.0108668507[0m	
+[0mEpoch: [5][155/195]	Time 0.787 Loss 2.6395 LR 0.0108668507[0m	
+[0mEpoch: [5][156/195]	Time 0.786 Loss 2.8253 LR 0.0108668507[0m	
+[0mEpoch: [5][157/195]	Time 0.786 Loss 2.6062 LR 0.0108668507[0m	
+[0mEpoch: [5][158/195]	Time 0.787 Loss 2.7977 LR 0.0108668507[0m	
+[0mEpoch: [5][159/195]	Time 0.787 Loss 2.6837 LR 0.0108668507[0m	
+[0mEpoch: [5][160/195]	Time 0.787 Loss 2.4730 LR 0.0108668507[0m	
+[0mEpoch: [5][161/195]	Time 0.787 Loss 2.7623 LR 0.0108668507[0m	
+[0mEpoch: [5][162/195]	Time 0.786 Loss 2.5732 LR 0.0108668507[0m	
+[0mEpoch: [5][163/195]	Time 0.786 Loss 2.6540 LR 0.0108668507[0m	
+[0mEpoch: [5][164/195]	Time 0.786 Loss 2.5809 LR 0.0108668507[0m	
+[0mAccuracy top1-%: 41.02 	top5-%: 68.75 	Loss: 2.5809 	LR: 0.0108668507[0m	
+[0mEpoch: [5][165/195]	Time 0.786 Loss 2.5468 LR 0.0108668507[0m	
+[0mEpoch: [5][166/195]	Time 0.786 Loss 2.7224 LR 0.0108668507[0m	
+[0mEpoch: [5][167/195]	Time 0.787 Loss 2.5691 LR 0.0108668507[0m	
+[0mEpoch: [5][168/195]	Time 0.786 Loss 2.7459 LR 0.0108668507[0m	
+[0mEpoch: [5][169/195]	Time 0.787 Loss 2.6245 LR 0.0108668507[0m	
+[0mEpoch: [5][170/195]	Time 0.787 Loss 2.6316 LR 0.0108668507[0m	
+[0mEpoch: [5][171/195]	Time 0.786 Loss 2.6068 LR 0.0108668507[0m	
+[0mEpoch: [5][172/195]	Time 0.786 Loss 2.5216 LR 0.0108668507[0m	
+[0mEpoch: [5][173/195]	Time 0.786 Loss 2.7219 LR 0.0108668507[0m	
+[0mEpoch: [5][174/195]	Time 0.787 Loss 2.6231 LR 0.0108668507[0m	
+[0mEpoch: [5][175/195]	Time 0.787 Loss 2.5447 LR 0.0108668507[0m	
+[0mEpoch: [5][176/195]	Time 0.786 Loss 2.6142 LR 0.0108668507[0m	
+[0mEpoch: [5][177/195]	Time 0.786 Loss 2.5719 LR 0.0108668507[0m	
+[0mEpoch: [5][178/195]	Time 0.786 Loss 2.6830 LR 0.0108668507[0m	
+[0mEpoch: [5][179/195]	Time 0.786 Loss 2.5736 LR 0.0108668507[0m	
+[0mAccuracy top1-%: 41.99 	top5-%: 66.41 	Loss: 2.5736 	LR: 0.0108668507[0m	
+[0mEpoch: [5][180/195]	Time 0.787 Loss 2.5089 LR 0.0108668507[0m	
+[0mEpoch: [5][181/195]	Time 0.786 Loss 2.4827 LR 0.0108668507[0m	
+[0mEpoch: [5][182/195]	Time 0.786 Loss 2.6173 LR 0.0108668507[0m	
+[0mEpoch: [5][183/195]	Time 0.787 Loss 2.6315 LR 0.0108668507[0m	
+[0mEpoch: [5][184/195]	Time 0.786 Loss 2.7701 LR 0.0108668507[0m	
+[0mEpoch: [5][185/195]	Time 0.787 Loss 2.4919 LR 0.0108668507[0m	
+[0mEpoch: [5][186/195]	Time 0.787 Loss 2.4695 LR 0.0108668507[0m	
+[0mEpoch: [5][187/195]	Time 0.786 Loss 2.4883 LR 0.0108668507[0m	
+[0mEpoch: [5][188/195]	Time 0.786 Loss 2.6861 LR 0.0108668507[0m	
+[0mEpoch: [5][189/195]	Time 0.786 Loss 2.4927 LR 0.0108668507[0m	
+[0mEpoch: [5][190/195]	Time 0.787 Loss 2.5242 LR 0.0108668507[0m	
+[0mEpoch: [5][191/195]	Time 0.787 Loss 2.6917 LR 0.0108668507[0m	
+[0mEpoch: [5][192/195]	Time 0.786 Loss 2.7813 LR 0.0108668507[0m	
+[0mEpoch: [5][193/195]	Time 0.786 Loss 2.6350 LR 0.0108668507[0m	
+[0mEpoch: [5][194/195]	Time 0.786 Loss 2.6231 LR 0.0108668507[0m	
+[0mAccuracy top1-%: 41.80 	top5-%: 65.43 	Loss: 2.6231 	LR: 0.0108668507[0m	
+[0mEpoch: [5][TRAINING SUMMARY] Total Time(s): 168.82	average loss (per batch): 2.79 	 accuracy(%):	 top-1 2.44	 top-5 4.19[0m	
+[0m
+[0m	
+[0m==> doing epoch on validation data:[0m	
+[0m==> online epoch # 5[0m	
+[0mnValidate: 10000[0m	
+[0mtestBatchSize: 512[0m	
+[0mEpoch: [5][TESTING SUMMARY] Total Time(s): 5.74 	average loss (per batch): 3.50 	 accuracy [Center](%):	 top-1 22.75	 top-5 45.47	[0m	
+[0m
+[0m	
+[0m-- ignore option cache[0m	
+[0m-- ignore option optimState[0m	
+[0m-- ignore option data[0m	
+[0m-- ignore option retrain[0m	
+[0mnEpochs[0m	[0;36m5[0m	[0;36m55[0m	

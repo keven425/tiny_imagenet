@@ -1,0 +1,3 @@
+Kedao (Keven) Wang
+
+This code is adapted from Fbcunn (https://github.com/facebook/fbcunn), and its example on imagenet. Work was done to adapt it to tiny imagenet, support test mode, support visualization, support non-augmentation, support learning rate decay by epoch, and add custom models.

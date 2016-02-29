@@ -1,0 +1,9 @@
+Epoch: [1][0/5] Time 2.044 Loss 0.4687 LR 0.0085320014
+Epoch: [1][1/5] Time 2.038 Loss 0.3582 LR 0.0085320014
+Epoch: [1][2/5] Time 2.037 Loss 0.3685 LR 0.0085320014
+Epoch: [1][3/5] Time 2.037 Loss 0.4173 LR 0.0085320014
+Epoch: [1][4/5] Time 2.037 Loss 0.3770 LR 0.0085320014
+
+testBatchSize: 512
+Epoch: [1][TESTING SUMMARY] Total Time(s): 14.54        average loss (per batch): 4.99   accuracy [Center](%)
+:        top-1 21.99     top-5 43.84

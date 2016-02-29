@@ -1,0 +1,21 @@
+alias run="th main.lua -data /root/tiny-imagenet-200/ -netType kevenet_6_layer -batchSize 256 -testBatchSize 256 -nEpochs 1 -retrain ~/fbcunn_imagenet/imagenet_runs/kevenet\,LR\=0.015\,nEpochs\=50\,netType\=kevenet_6_layer/\,SatFeb2804\:24\:172015/model_7.t7 -LR 0.01"
+
+th main.lua -data /root/tiny-imagenet-200/ -netType kevenet_6_layer -batchSize 256 -testBatchSize 256 -nEpochs 1 -retrain ~/fbcunn_imagenet/imagenet_runs/kevenet\,LR\=0.015\,nEpochs\=50\,netType\=kevenet_6_layer/\,SatFeb2804\:24\:172015/model_7.t7 -visualize
+
+
+th main.lua -data /root/tiny-imagenet-200/ -netType kevenet_6_layer_3 -batchSize 512 -testBatchSize 512 -LR 0.015 -nEpochs 10   &&   th main.lua -data /root/tiny-imagenet-200/ -netType kevenet_6_layer -batchSize 256 -testBatchSize 256 -LR 0.015 -weightDecay 0.01 -nEpochs 10   &&   th main.lua -data /root/tiny-imagenet-200/ -netType kevenet_6_layer_2 -batchSize 512 -testBatchSize 512 -LR 0.015 -nEpochs 10
+
+
+
+th main.lua -data /root/tiny-imagenet-200/ -netType kevenet_6_layer -batchSize 256 -testBatchSize 256 -LR 0.009 -nEpochs 10 -retrain ~/fbcunn_imagenet/imagenet_runs/kevenet_6_layer\,LR\=0.015\,nEpochs\=10\,netType\=kevenet_6_layer\,weightDecay\=0.005/\,SatFeb2823\:53\:132015/model_10.t7 | tee output10.txt
+
+
+(th main.lua -data /root/tiny-imagenet-200/ -netType kevenet_5_layer_dropout -batchSize 512 -testBatchSize 512 -LR 0.015 -weightDecay 0.01 -nEpochs 20   &&   th main.lua -data /root/tiny-imagenet-200/ -netType kevenet_6_layer_3_dropout -batchSize 512 -testBatchSize 512 -LR 0.015 -nEpochs 20) | tee output12.txt
+
+th main.lua -data /root/tiny-imagenet-200/ -netType kevenet_5_layer_dropout -batchSize 512 -testBatchSize 512 -LR 0.015
+
+th main.lua -data /root/tiny-imagenet-200/ -netType kevenet_6_layer_3_dropout_augment -nEpochs 20 -augment true -LR 0.015
+
+
+
+(run -weightDecay 0.01 && run -weightDecay 0.1 && run -weightDecay 0.001) | tee output8.txt

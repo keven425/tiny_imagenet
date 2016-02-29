@@ -1,0 +1,66 @@
+Epoch: [1][194/195]     Time 2.034 Loss 4.6036 LR 0.0142500000
+Accuracy top1-%: 6.64   top5-%: 22.27   Loss: 4.6036    LR: 0.0142
+500000
+Epoch: [1][TRAINING SUMMARY] Total Time(s): 441.64      average lo
+ss (per batch): 5.00     accuracy(%):    top-1 0.23      top-5 0.7
+4
+
+
+==> doing epoch on validation data:
+==> online epoch # 1
+nValidate: 10000
+testBatchSize: 512
+
+Epoch: [1][TESTING SUMMARY] Total Time(s): 17.44        average lo
+ss (per batch): 4.49     accuracy [Center](%):   top-1 7.24      t
+op-5 20.66
+
+
+
+
+
+
+
+
+Epoch: [2][194/195]     Time 2.035 Loss 3.9426 LR 0.0135375000
+Accuracy top1-%: 15.62  top5-%: 36.13   Loss: 3.9426    LR: 0.0135
+375000
+Epoch: [2][TRAINING SUMMARY] Total Time(s): 427.80      average lo
+ss (per batch): 4.20     accuracy(%):    top-1 0.81      top-5 2.0
+4
+
+
+==> doing epoch on validation data:
+==> online epoch # 2
+nValidate: 10000
+testBatchSize: 512
+Epoch: [2][TESTING SUMMARY] Total Time(s): 14.26        average lo
+ss (per batch): 3.94     accuracy [Center](%):   top-1 14.59     t
+op-5 34.26
+
+
+
+
+
+
+
+
+Epoch: [3][194/195]     Time 2.034 Loss 3.2774 LR 0.0128606250
+Accuracy top1-%: 25.20  top5-%: 54.49   Loss: 3.2774    LR: 0.0128
+606250
+Epoch: [3][TRAINING SUMMARY] Total Time(s): 418.66      average lo
+ss (per batch): 3.58     accuracy(%):    top-1 1.47      top-5 3.0
+9
+
+
+==> doing epoch on validation data:
+==> online epoch # 3
+nValidate: 10000
+testBatchSize: 512
+Epoch: [3][TESTING SUMMARY] Total Time(s): 14.20        average lo
+ss (per batch): 3.71     accuracy [Center](%):   top-1 18.08     t
+op-5 39.47
+
+
+root@keven4255:~/fbcunn/examples/imagenet#
+root@keven4255:~/fbcunn/examples/imagenet#  
